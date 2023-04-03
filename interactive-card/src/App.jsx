@@ -1,29 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Form from './Components/Form'
-// import favicon from "/public/favicon-32*32.png"
-
+import Card from './Components/card'
 function App() {
+  // const data = {
+  //   cardname: null,
+  //   cardnumber: null,
+  //   mm: null,
+  //   yy: null,
+  //   Cvc: null,
+  // }
+  const [cardData, setCardData ] = useState({
+    cardName: null,
+    cardnumber: null,
+    mm: null,
+    yy: null,
+    Cvc: null,
+  });
+  useEffect(()=>{
+
+  },[cardData])
   return (
     <div className="App">
-      <div className="left">
-        <div className="card-layout">
-          <div className="frontcard">
-            <div className="logos">
-              <div className='logo1'></div>
-              <div className='logo2'></div>
-            </div>
-            <h1 className="cardnumber-f">1234 4564 7890 4565</h1>
-            <span className="cardname-f">felicia liere</span>
-          </div>
-          <div className="backcard">
-          </div>
-        </div>
+      <div className="left" >
+        <Card cardData={cardData} />
       </div>
       <div className="right">
-        <Form />
+        <Form cardData={cardData} setCardData={setCardData} />
       </div>
     </div>
   )
