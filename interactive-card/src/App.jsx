@@ -19,7 +19,7 @@ function App() {
   });
   useEffect(()=>{
 
-  },[cardData])
+  },[cardData ])
   return (
     <div className="App">
       <div className="left" >

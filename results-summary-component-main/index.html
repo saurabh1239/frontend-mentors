@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --clr-primary-hsl-400: 252, 100%, 67%;
+      --clr-primary-hsl-500: 256, 72%, 46%;
+      --clr-secondary-hsl-400: 241, 81%, 54%;
+      --clr-secondary-hsl-500: 241, 72%, 46%;
+
+      --clr-neutral-hsl-100: 0, 0%, 100%;
+      --clr-neutral-hsl-200: 221, 100%, 96%;
+      --clr-neutral-hsl-300: 241, 100%, 89%;
+      --clr-neutral-hsl-700: 224, 30%, 27%;
+
+      --clr-neutral-100: hsl(var(--clr-neutral-hsl-100));
+      --clr-neutral-200: hsl(var(--clr-neutral-hsl-200));
+      --clr-neutral-300: hsl(var(--clr-neutral-hsl-300));
+      --clr-neutral-700: hsl(var(--clr-neutral-hsl-700));
+
+      --clr-primary-400: hsl(var(--clr-primary-hsl-400));
+      --clr-primary-500: hsla(var(--clr-primary-hsl-500));
+      --clr-secondary-400: hsl(var(--clr-secondary-hsl-400));
+
+      --gradient-primary: linear-gradient(var(--clr-primary-400),
+          var(--clr-secondary-400));
+
+      --gradient-to-transparent: linear-gradient(var(--clr-primary-500),
+          hsl(var(--clr-secondary-hsl-500), 0));
+
+      --clr-accent-1: 0, 100%, 67%;
+      --clr-accent-2: 39, 100%, 56%;
+      --clr-accent-3: 166, 100%, 37%;
+      --clr-accent-4: 234, 85%, 45%;
+
+      --font-family-default: "HankenGrotesk", sans-serif;
+
+      --fw-regular: 500;
+      --fw-bold: 700;
+      --fw-black: 800;
+
+      --fs-400: 1.125rem;
+      --fs-500: 1.25rem;
+      --fs-600: 1.5rem;
+      --fs-700: 1.75rem;
+      --fs-800: 2rem;
+      --fs-900: 5rem;
+    }
+
+    #app {
+      margin: 0;
+      max-width: 43rem;
+      display: flex;
+      /* background-color: light grey; */
+      border-radius: 2rem;
+      /* padding: 5px 10px 5px 10px; */
+      font-family: 'Hanken Grotesk', sans-serif;
+      ;
+    }
+
+    #Result {
+      color: hsl(var(--clr-neutral-hsl-100), 0.7);
+      width: 20rem;
+      background-color: gray;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      flex: 1;
+      background: linear-gradient(hsl(252, 100%, 67%),
+          hsl(241, 81%, 54%));
+      border-radius: 1rem;
+      align-items: center;
+      gap: 5px;
+      padding: 1em 0 1em 0;
+    }
+
+    .score {
+      width: 8em;
+      height: 8em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(hsla(256, 72%, 46%, 1),
+          hsla(241, 72%, 46%, 0));
+      border-radius: 50%;
+      font-size: x-large;
+      color: white;
+    }
+
+    .score>p {
+      font-size: 3em;
+      font-weight: 900;
+      margin: 0;
+    }
+
+    .score>span {
+      font-size: medium;
+      color: rgb(127, 113, 250);
+      ;
+    }
+
+    #Result {
+      padding: 1rem;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+    }
+
+    #Result>h4,
+    h1,
+    p {
+      margin: 0;
+    }
+
+    #Result>h1 {
+      color: white;
+    }
+    #Result > h4{
+      font-size: medium;
+      margin-top: 1em;
+    }
+
+    #Result>p {
+      text-align: center;
+      font-size: 1em;
+      font-weight: 100;
+    }
+
+    #Summary {
+      flex: 1;
+      display: flex;
+      padding: 1rem;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-radius: 0 1rem 1rem 0;
+      box-shadow: 6px 2px 13px 2px rgb(243, 244, 251);
+
+    }
+    #Summary h1{
+      font-size: 2em;
+      color:rgb(79, 84, 107);
+    }
+    #Summary button{
+      width: 100%;
+      background: rgb(48, 59, 89);
+      padding: 1em;
+      border-radius: 2em;
+      color: white;
+      margin-top: 1em;
+    }
+
+    .sum-node {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      border-radius: 10px;
+    }
+    .sum-node > span{
+      display: flex;
+      gap: 1em;
+      padding: 1em;
+    }
+    .sum-node.one{
+      color:rgb(255 85 85);
+      background: rgb(255, 246, 245);;
+    }
+    .sum-node.two{
+      color: rgb(255 178 30);
+      background: rgb(254, 249, 239);
+    }
+    .sum-node.three{
+      color: rgb(0 187 143);
+      background: rgb(242, 251, 250);;
+    }
+    .sum-node.four{
+      color: rgb(30 46 212);
+      background: rgb(243, 243, 253);;
+    }
+
+    @media (min-width: 600px) {
+
+      #result,
+      #summary {
+        margin-inline: 1rem;
+        grid-template-columns: 1fr 1fr;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: 0.5rem 1rem 3rem hsl(var(--clr-neutral-hsl-700), 0.2);
+      }
+    }
+
+    @media (min-width: 600px) {
+      body {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- //Result -->
+    <div id="Result">
+      <h4>
+        Your Result
+      </h4>
+      <div class="score">
+        <p>
+          76
+        </p>
+        <span>
+          of 100
+        </span>
+      </div>
+      <h1>Great</h1>
+      <p> You scored higher than 65% of the people who have taken these tests.
+      </p>
+    </div>
+    <!-- summary -->
+    <div id="Summary">
+      <h1>
+        Summary
+      </h1>
+      <div class="sum-node one">
+        <span>
+          <img src="/assets/images/icon-reaction.svg" alt="">
+          <p>
+            Reaction
+          </p>
+        </span>
+        <span>80 / 100</span>
+      </div>
+      <div class="sum-node two">
+        <span>
+          <img src="/assets/images/icon-memory.svg" alt="">
+          <p>
+            Memory
+          </p>
+        </span>
+        <span> 92 / 100</span>
+      </div>
+      <div class="sum-node three">
+        <span>
+          <img src="/assets/images/icon-verbal.svg" alt="">
+          <p>Verbal</p>
+        </span>
+        <span>61 / 100</span>
+      </div>
+      <div class="sum-node four">
+        <span>
+          <img src="/assets/images/icon-visual.svg" alt="">
+          <p>Visual</p>
+        </span>
+        <span>62 / 100</span>
+      </div>
+      <button>Continue</button>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+
+</html>

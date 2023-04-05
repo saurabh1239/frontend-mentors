@@ -2,7 +2,7 @@ import React from 'react'
 import "../app.css"
 
 const Card = ({ cardData }) => {
-    console.log("card", cardData);
+    // console.log("card", cardData);
     return (
         <div className="card-layout">
             <div className="frontcard">
@@ -13,7 +13,7 @@ const Card = ({ cardData }) => {
                 <h1 className="cardnumber-f">{cardData.cardnumber || 54645664564654}</h1>
                 <div className="cardname-f">
                     <p>
-                        {cardData.cardName || "saurabh"}
+                        {cardData.cardName   || "saurabh"}
                     </p>
                     <span>
                         {cardData.mm||11}/{cardData.yy||2020}

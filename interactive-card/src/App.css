@@ -102,6 +102,7 @@
   align-content: flex-end;
   flex-wrap: wrap;
   justify-content: space-around;
+  word-spacing: 5px;
 }
 
 .cardname-f {
