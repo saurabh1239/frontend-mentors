@@ -1,0 +1,139 @@
+#root {
+  margin: 0;
+  text-align: center;
+  height: 100vh;
+  font-family: "League Spartan", sans-serif;
+}
+
+.body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+p,
+h1,
+h2 {
+  margin: 0;
+  display: block;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  align-self: flex-start;
+}
+p{
+  font-size: medium;
+  display: flex;
+  align-items: flex-start;
+  color: rgba(0, 0, 0, 0.311);
+  align-self: flex-start
+}
+.top {
+  flex: 2;
+  display: flex;
+}
+
+.left-top {
+  flex: 2;
+  position: relative;
+}
+
+.hero-image {
+  /* position: absolute; */
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.navlinks {
+  display: flex;
+  list-style: none;
+  position: absolute;
+  /* align-items: center;
+  justify-content: center; */
+  top: 14vh;
+  left: 4vw;
+  z-index: 1;
+  gap: 3em;
+  color: white;
+}
+.carousel-buttons{
+  position: absolute;
+  bottom: 0em;
+  right: -7.7rem;
+  display: flex;
+  z-index: 1;
+  background-color: black;
+
+  /* gap: 2em; */
+}
+.buttons-B{
+  
+  padding: 1.4em;
+  /* color: white; */
+
+} 
+
+
+.right-top {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 2.5em 0 2.5em;
+  gap: 5em;
+  /* margin: 1em; */
+}
+
+.content {
+  /* display: flex;
+  flex-direction: column;
+  align-content: flex-start; */
+}
+
+.slider-heading {
+  font-size: xxx-large;
+  display: flex;
+  align-items: flex-start;
+  color: rgba(0, 0, 0, 0.838);
+}
+
+/* .slider-description {
+  font-size: medium;
+  display: flex;
+  align-items: flex-start;
+  color: rgba(0, 0, 0, 0.311);
+  align-self: flex-start
+} */
+.shop-link{
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+button{
+  border: none;
+  font-size: 0.8em;
+  font-weight: 600;
+  background-color: transparent;
+  letter-spacing: 0.7rem;
+  color: rgba(0, 0, 0, 0.623);
+}
+
+.bottom {
+  flex: 1;
+  display: flex;
+  border: none;
+
+}
+
+.about {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
