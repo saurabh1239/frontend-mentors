@@ -23,9 +23,9 @@ const Card = ({ cardData }) => {
                 </div> */}
             </div>
             <div className="backcard">
-                <span>
+                <p>
                     {cardData.Cvc||556}
-                </span>
+                </p>
             </div>
         </div>
     )

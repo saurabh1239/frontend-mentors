@@ -25,6 +25,10 @@ h2 {
   margin-inline-end: 0px;
   align-self: flex-start;
 }
+img{
+  overflow: auto;
+  overflow-clip-margin: unset;
+}
 p{
   font-size: medium;
   display: flex;
@@ -33,20 +37,24 @@ p{
   align-self: flex-start
 }
 .top {
-  flex: 2;
   display: flex;
+  position: relative;
 }
 
 .left-top {
   flex: 2;
   position: relative;
 }
-
+.carousel hidden{
+  visibility: hidden;
+}
 .hero-image {
   /* position: absolute; */
+  object-fit: cover;
   z-index: 0;
   height: 100%;
   width: 100%;
+
 }
 
 .navlinks {
@@ -64,7 +72,7 @@ p{
 .carousel-buttons{
   position: absolute;
   bottom: 0em;
-  right: -7.7rem;
+  right: 27.3rem;
   display: flex;
   z-index: 1;
   background-color: black;
@@ -125,9 +133,10 @@ button{
 }
 
 .bottom {
-  flex: 1;
+
   display: flex;
   border: none;
+  flex:1;
 
 }
 
