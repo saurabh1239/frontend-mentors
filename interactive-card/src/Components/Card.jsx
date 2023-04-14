@@ -10,21 +10,22 @@ const Card = ({ cardData }) => {
                     <div className='logo1'></div>
                     <div className='logo2'></div>
                 </div>
-                <h1 className="cardnumber-f">{cardData.cardnumber || 54645664564654}</h1>
+                <h1 className="cardnumber-f">{cardData.cardnumber || 45456455464654}</h1>
                 <div className="cardname-f">
                     <p>
-                        {cardData.cardName   || "saurabh"}
+                        {cardData.cardName || "saurabh"}
                     </p>
-                    <span>
-                        {cardData.mm||11}/{cardData.yy||2020}
-                    </span>
+                    <p>
+                        {cardData.mm || 11}/ {cardData.yy || 2020}
+                    </p>
                 </div>
                 {/* <div className="expire">
+                    
                 </div> */}
             </div>
             <div className="backcard">
                 <p>
-                    {cardData.Cvc||556}
+                    {cardData.Cvc || 556}
                 </p>
             </div>
         </div>
