@@ -1,0 +1,118 @@
+.App {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: url('/bg-intro-desktop.png');
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  /* padding: 1rem 3rem 1rem 3rem; */
+}
+
+div {
+  /* display: none; */
+}
+p{
+  margin: 0;
+  margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.left {
+  /* flex: 1; */
+  width: 400px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.left>h1 {
+  letter-spacing: 1px;
+}
+.left>p{
+  font-size: 0.8em;
+}
+
+.right {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding:2em;
+  /* flex: 1; */
+}
+
+.offer {
+  /* align-self: center; */
+  background-color: rgb(92, 83, 161);
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px 0px rgba(60, 60, 60, 0.504);
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.Form {
+  border: none;
+  background-color: white;
+  padding:2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px 0px rgba(60, 60, 60, 0.504);
+}
+.Form>button{
+  padding: 1em;
+  border-radius: 5px;
+  background-color: rgb(54, 203, 137);
+  border: none;
+  box-shadow: 0px 2px 4px 0px rgb(54, 203, 137);
+  color: white;
+  cursor: pointer;
+}
+.Form > p{
+  color: lightgray;
+  align-self: center;
+  font-size: 0.6em;
+}
+.formInputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.formInputs>input {
+  color: #000;
+  border-style: solid;
+  border-color: lightgray;
+  /* border-width: 2px; */
+  padding: 0.8em;
+  border-radius: 5px;
+}
+
+.formInputs>span {
+  display: none;
+}
