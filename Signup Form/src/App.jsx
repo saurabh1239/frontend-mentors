@@ -4,8 +4,6 @@ import './App.css'
 import background1 from "/bg-intro-desktop.png"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
       <div className="left">
