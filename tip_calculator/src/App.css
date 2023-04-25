@@ -1,0 +1,118 @@
+.App {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: hsl(185, 41%, 84%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Space Mono', monospace;
+}
+p{
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.heading {
+  color: hsl(186, 14%, 43%)
+}
+
+.heading>h1 {
+  font-weight: 400;
+}
+
+.card {
+  /* width: 40vw; */
+  display: flex;
+  padding: 1.5em;
+  background-color: hsl(189, 41%, 97%);
+  border-radius: 1em;
+  gap: 1em;
+}
+
+.left {
+  flex: 1;
+  padding: 2em;
+}
+.Bill{
+  display: flex;
+  flex-direction: column;
+}
+.Bill>input{
+  background-color: hsl(185, 41%, 84%);
+  padding: 0.8em;
+  border-radius: 2px;
+  border: none
+}
+#sub-title{
+  color:hsl(184, 14%, 56%) 
+}
+.tip>ul{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+.tip>ul>li{
+  background-color: hsl(183, 100%, 15%);
+  padding: 1em 2em;
+  border-radius: 5px;
+}
+
+.right {
+  flex: 1;
+  background-color: hsl(183, 100%, 15%);
+  border-radius: 10px;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+
+.tip_amount {
+  /* height: 100%; */
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.list-left{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.list-left>span{
+  color: hsl(0, 0%, 100%);
+  font:300;
+  /* font-weight: 200; */
+}
+.list-left>p{
+  color:hsl(184, 14%, 56%)
+}
+.list-right {
+  font-size: x-large;
+  color: rgb(40, 191, 171);
+}
+.right>button{
+  width: 100%;
+}
