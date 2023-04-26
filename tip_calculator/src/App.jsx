@@ -1,4 +1,6 @@
 import logo from './logo.svg';
+import Dollar from "./icon-dollar.svg";
+import Person from "./icon-person.svg";
 import './App.css';
 
 function App() {
@@ -10,9 +12,10 @@ function App() {
       </div>
       <div className="card">
         <div className="left">
-          <div className='Bill'>
+          <div className='input-sample'>
             <span id="sub-title">BILL</span>
             <input type="number" placeholder='142.55' />
+            <img src={Person} alt="" style={{width:"0.8em", position:"absolute" ,top:"28px",left:"8px"}}/>
             {/* <p></p> */}
           </div>
           <div className="tip">
@@ -21,14 +24,17 @@ function App() {
               <li>5%</li>
               <li>10%</li>
               <li>15%</li>
-              <li>25%</li>
+            </ul>
+            <ul>
               <li>50%</li>
+              <li>25%</li>
               <li>Custom</li>
             </ul>
           </div>
-          <div className="select_people">
+          <div className="input-sample">
             <span id="sub-title">Number of Peoples</span>
-            <input type="number" placeholder='5'/>
+            <input type="number" placeholder='5' />
+            <img src={Dollar} alt="" style={{width:"0.8em", position:"absolute" ,top:"28px",left:"8px"}}/>
           </div>
         </div>
         <div className="right">
@@ -40,7 +46,7 @@ function App() {
               </div>
               <div className="list-right">
                 <h3>
-                  $11.27
+                  $1.27
                 </h3>
               </div>
             </div>
