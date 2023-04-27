@@ -1,10 +1,20 @@
+import { useEffect, useMemo } from "react";
 import { Marker, useMap } from "react-leaflet";
 
-const LocationMarker = ({ position }) => {
+const LocationMarker = ({ lat, log }) => {
+    const position = useMemo(() => {
+        return [lat, log]
+    }, [lat, log])
     const map = useMap();
-    map.flyTo([position.lat, position.log], 13, { animate: true });
-    return position === null ? null :
+
+    useEffect(() => {
+        map.flyTo(position, 13, {
+            animate: true,
+        })
+    }, [map, position])
+    return (
         <Marker position={position}>
         </Marker>
+    )
 }
 export default LocationMarker;
