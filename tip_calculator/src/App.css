@@ -54,6 +54,7 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  color:hsl(184, 40%, 87%);
 }
 .input-sample{
   display: flex;
@@ -65,7 +66,10 @@ h1 {
   background-color: hsl(185, 41%, 84%);
   padding: 0.8em;
   border-radius: 5px;
-  border: none
+  border: none;
+  font-size: 0.8em;
+  
+  font-weight: 800;
 }
 .tip{
   display: flex;
@@ -96,8 +100,17 @@ h1 {
   font-size: 1em;
   color: white;
   text-align: center;
+  cursor: pointer;
 }
-
+.error-handling{
+  /* font-size: 0.7em; */
+  color: red;
+  display: flex;
+  justify-content: space-between;
+}
+.error-handling>p{
+  font-size: 0.7em;
+}
 .right {
   /* flex: 1; */
   background-color: hsl(183, 100%, 15%);
