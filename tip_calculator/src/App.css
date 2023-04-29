@@ -1,6 +1,7 @@
-*body{
+*body {
   font-family: 'Space Mono', monospace;
 }
+
 .App {
   height: 100vh;
   width: 100vw;
@@ -9,17 +10,19 @@
   background-color: hsl(185, 41%, 84%);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  /* gap: 2em; */
- 
+  gap: 4em;
+
 }
-p{
+
+p {
   margin-block-start: 0;
   margin-block-end: 0;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
+
 h1 {
   margin: 0;
   padding: 0;
@@ -45,72 +48,93 @@ h1 {
   padding: 1.5em;
   background-color: hsl(189, 41%, 97%);
   border-radius: 1em;
-  /* gap: 0.8em; */
+  gap: 1em;
 }
 
 .left {
   /* flex: 1; */
-  padding: 2em;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   gap: 1em;
-  color:hsl(184, 40%, 87%);
+  color: hsl(184, 40%, 87%);
 }
-.input-sample{
+
+.input-sample {
   display: flex;
   flex-direction: column;
   position: relative;
 }
-.input-sample>input{
+
+.input-sample>input {
   text-align: right;
   background-color: hsl(185, 41%, 84%);
   padding: 0.8em;
   border-radius: 5px;
   border: none;
   font-size: 0.8em;
-  
   font-weight: 800;
 }
-.tip{
+.input-sample>input:active{
+  background-color: 5px solid gray;
+}
+
+.input-sample>input:invalid{
+  background-color: 1px solid red;
+}
+
+.tip {
   display: flex;
   flex-direction: column;
   gap: 0.8em;
 }
-#sub-title{
-  color:hsl(186, 14%, 43%);
+
+#sub-title {
+  color: hsl(186, 14%, 43%);
   font-size: 0.8em;
 }
-.tip>ul{
+
+.tip>ul {
   list-style: none;
   display: flex;
   justify-content: space-around;
   /* flex-wrap: wrap; */
   gap: 0.8em;
   margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 0px;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
 }
-.tip>ul>li{
+
+.tip>ul>li {
   background-color: hsl(183, 100%, 15%);
   width: 70px;
-  padding: 6px 9px  6px 9px ;
+  padding: 6px 9px 6px 9px;
   border-radius: 4px;
   font-size: 1em;
   color: white;
   text-align: center;
   cursor: pointer;
 }
-.error-handling{
-  /* font-size: 0.7em; */
+.tip>ul>li:hover{
+  background-color: hsl(184, 14%, 56%);
+}
+.handling>p {
+  display: none;
+}
+
+.error {
   color: red;
   display: flex;
   justify-content: space-between;
+  border-color: red;
 }
-.error-handling>p{
+
+.error>p {
   font-size: 0.7em;
 }
+
 .right {
   /* flex: 1; */
   background-color: hsl(183, 100%, 15%);
@@ -128,35 +152,61 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 3em;
+  padding: 0em 1em 0 1em;
+  gap: 2em;
 }
 
-.list-left{
+.list-left {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
 }
-.list-left>span{
-  font-size:0.8em;
+
+.list-left>span {
+  font-size: 0.8em;
   color: hsl(0, 0%, 100%);
-  font:300;
+  font: 300;
   /* font-weight: 200; */
 }
-.list-left>p{
+
+.list-left>p {
   font-size: 0.6em;
-  color:hsl(184, 14%, 56%)
+  color: hsl(184, 14%, 56%)
 }
+
 .list-right {
   font-size: x-large;
   color: rgb(40, 191, 171);
 }
-.right>button{
+
+.right>button {
   width: 100%;
   padding: 0.8em;
   background-color: hwb(183 1% 51% / 0.995);
-  color: rgb(40, 191, 171);;
+  color: rgb(40, 191, 171);
+  ;
   border: none;
   border-radius: 5px;
-  font-weight:700;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  .App {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    overflow: scroll;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80%;
+  }
 }

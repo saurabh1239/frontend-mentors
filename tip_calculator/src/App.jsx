@@ -11,16 +11,15 @@ function App() {
   const [people, setPeople] = useState(0);
 
   const TotalBill = () => {
-    const tipamount = bill + (bill * tip)
-    console.log(tipamount);
-    setTotalBill(tipamount)
-    const split = tipamount % people
+    const tipamount = (bill * tip) / 100
+    const final_amount =  tipamount+parseInt(bill);
+    setTotalBill(final_amount)
+    const split = final_amount/parseInt(people);
     setTotalsplit(split)
-    console.log(Totalsplit);
   }
-  useEffect(()=>{
+  useEffect(() => {
     TotalBill()
-  },[bill,tip,people])
+  }, [bill, tip, people])
   return (
     <div className="App">
       <div className="heading">
@@ -30,15 +29,15 @@ function App() {
       <div className="card">
         <div className="left">
           <div className='input-sample'>
-            <div className="error-handling">
+            <div className="error">
               <span id="sub-title">Bill</span>
               <p>Cannot be Empty</p>
             </div>
-            <input type="number" placeholder='142.55' onClick={(e) => setBill(e.target.value)} required />
+            <input type="text" placeholder='142.55' onChange={(e) => setBill(e.target.value)} required value={bill} />
             <img src={Person} alt="" style={{ width: "0.8em", position: "absolute", top: "28px", left: "8px" }} />
           </div>
           <div className="tip">
-            <div className="error-handling">
+            <div className="handling error">
               <span id="sub-title">Select Tip %</span>
               <p>Tip is Required</p>
             </div>
@@ -54,11 +53,11 @@ function App() {
             </ul>
           </div>
           <div className="input-sample">
-            <div className="error-handling">
+            <div className="handling error">
               <span id="sub-title">Number of Peoples</span>
               <p>Cannot be zero</p>
             </div>
-            <input type="number" placeholder='5' />
+            <input type="text" placeholder='5' required onChange={(e) => setPeople(e.target.value)} value={people} />
             <img src={Dollar} alt="" style={{ width: "0.8em", position: "absolute", top: "28px", left: "8px" }} />
           </div>
         </div>
@@ -82,7 +81,7 @@ function App() {
               </div>
               <div className="list-right">
                 <h3>
-                  $12.79
+                {Totalsplit}
                 </h3>
               </div>
             </div>
