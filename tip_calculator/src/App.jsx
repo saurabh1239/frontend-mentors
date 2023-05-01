@@ -4,17 +4,18 @@ import './App.css';
 import { useEffect, useState } from "react";
 
 function App() {
-  const [Totalbill, setTotalBill] = useState(0)
-  const [Totalsplit, setTotalsplit] = useState(1)
-  const [bill, setBill] = useState(0)
+  const [Totalbill, setTotalBill] = useState(null)
+  const [Totalsplit, setTotalsplit] = useState(null)
+  const [bill, setBill] = useState()
   const [tip, setTip] = useState("5%");
-  const [people, setPeople] = useState(0);
+  const [people, setPeople] = useState();
+  const [custom, setCustom] = useState();
 
   const TotalBill = () => {
     const tipamount = (bill * tip) / 100
-    const final_amount =  tipamount+parseInt(bill);
+    const final_amount = tipamount + parseInt(bill);
     setTotalBill(final_amount)
-    const split = final_amount/parseInt(people);
+    const split = final_amount / parseInt(people);
     setTotalsplit(split)
   }
   useEffect(() => {
@@ -41,7 +42,30 @@ function App() {
               <span id="sub-title">Select Tip %</span>
               <p>Tip is Required</p>
             </div>
-            <ul>
+            <div className="radio-buttons">
+              <div className="tip-amount">
+                <input type="radio" />
+                <label htmlFor="" className="tip-btn">5%</label>
+              </div>
+              <div className="tip-amount">
+                <input type="radio" />
+                <label htmlFor="" className="tip-btn">10%</label>
+              </div>
+              <div className="tip-amount">
+                <input type="radio" />
+                <label htmlFor="" className="tip-btn">15%</label>
+              </div>
+              <div className="tip-amount">
+                <input type="radio" />
+                <label htmlFor="" className="tip-btn">25%</label>
+              </div>
+              <div className="tip-amount">
+                <input type="radio" />
+                <label htmlFor="" className="tip-btn">50%</label>
+              </div>
+              <input type="text" placeholder="CUSTOM" />
+            </div>
+            {/* <ul>
               <li onClick={(e) => setTip(5)}>5%</li>
               <li onClick={(e) => setTip(10)}>10%</li>
               <li onClick={(e) => setTip(15)}>15%</li>
@@ -49,8 +73,8 @@ function App() {
             <ul>
               <li onClick={(e) => setTip(50)}>50%</li>
               <li onClick={(e) => setTip(25)}>25%</li>
-              <li onClick={(e) => setTip(80)}>Custom</li>
-            </ul>
+              <input type="text" placeholder="Custom" value={custom} onChange={(e) => setCustom(e.target.value)} className="input_tip" />
+            </ul> */}
           </div>
           <div className="input-sample">
             <div className="handling error">
@@ -81,7 +105,7 @@ function App() {
               </div>
               <div className="list-right">
                 <h3>
-                {Totalsplit}
+                  {Totalsplit}
                 </h3>
               </div>
             </div>
@@ -93,4 +117,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 

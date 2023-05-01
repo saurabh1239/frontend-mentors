@@ -123,6 +123,18 @@ h1 {
 .handling>p {
   display: none;
 }
+.input_tip{
+  /* text-align: right; */
+  width: 70px;
+  background-color: hsl(185, 41%, 84%);
+  color: hsl(185, 15%, 55%);
+  padding: 0.8em;
+  border-radius: 5px;
+  border: none;
+  /* width: 100%; */
+  font-size: 0.8em;
+  font-weight: 800;
+}
 
 .error {
   color: red;
@@ -190,6 +202,19 @@ h1 {
   border-radius: 5px;
   font-weight: 700;
   cursor: pointer;
+}
+.radio-buttons{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+}
+.radio-buttons>div>label{
+  padding: 1em;
+}
+[name="tip"]{
+  opacity: 0;
+}
+.radio-buttons>div>input{
+  
 }
 
 @media screen and (max-width: 700px) {
