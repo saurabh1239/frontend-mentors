@@ -1,8 +1,12 @@
-import React from 'react'
+
+import "../App.css"
 
 const SearchBar = () => {
   return (
-    <div>Search-bar</div>
+    <div className="searchbar">
+      <input type="text" placeholder='Shorten a link here...' />
+      <button>Shorten it!</button>
+    </div>
   )
 }
 

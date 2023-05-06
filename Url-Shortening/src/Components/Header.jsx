@@ -1,4 +1,5 @@
-import React from 'react'
+
+import "../App.css"
 import logo from "../../public/images/logo.svg"
 
 const Header = () => {
@@ -15,7 +16,9 @@ const Header = () => {
                 </ul>
                 <ul className="profile">
                     <li>Login</li>
-                    <li>Signup</li>
+                    <button className='profile-button'>
+                        Sign Up
+                    </button>
                 </ul>
             </div>
         </div>
