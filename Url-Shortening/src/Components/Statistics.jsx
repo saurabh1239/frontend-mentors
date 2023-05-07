@@ -1,6 +1,3 @@
-import brandIcon from "../../public/images/icon-brand-recognition.svg"
-import detilsIcon from "../../public/images/icon-detailed-records.svg"
-import customiseIcon from "../../public/images/icon-fully-customizable.svg"
 import Card from "./Card"
 const cards = [
     {
@@ -19,18 +16,27 @@ const cards = [
         icon: "../../public/images/icon-fully-customizable.svg"
     },
 ]
-const Statistics = () => {
+const Statistics = ({ short }) => {
     return (
         <div className='statistic'>
+            {/* {
+                short.length == 0 ? <></> :
+
+                    <div className="result-cards">
+                        {short.full_short_link
+                        }
+                    </div>
+            } */}
             <div className="title-stat">
                 <h3>Advanced Statistics</h3>
-                <p>Track how your links are performing accross the web with our advanced Statistics dashboard</p>
+                <p>Track how your links are performing accross the web with <br />our advanced Statistics dashboard</p>
             </div>
             <div className="stat-card">
                 {cards.map((item, id) =>
                     <Card item={item} key={id} />
-                    
+
                 )}
+            <hr className="line-hr" />
             </div>
         </div>
     )
