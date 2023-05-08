@@ -52,7 +52,7 @@ function App() {
         </div>
         <SearchBar link={link} handleChange={handleChange} error={error} handleSubmit={handleSubmit} />
       </div>
-      <Statistics short={short} />
+      <Statistics short={short} link={link}/>
       <Banner />
       <Footer />
     </div>

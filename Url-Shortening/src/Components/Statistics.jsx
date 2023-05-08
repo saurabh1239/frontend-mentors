@@ -16,17 +16,25 @@ const cards = [
         icon: "../../public/images/icon-fully-customizable.svg"
     },
 ]
-const Statistics = ({ short }) => {
+const Statistics = ({ short, link }) => {
     return (
         <div className='statistic'>
-            {/* {
+            {
                 short.length == 0 ? <></> :
 
                     <div className="result-cards">
-                        {short.full_short_link
-                        }
+                        <p>
+                            {link}
+                        </p>
+                        <span>
+                            <p>
+                                {short.full_short_link
+                                }
+                            </p>
+                            <button>Copy</button>
+                        </span>
                     </div>
-            } */}
+            }
             <div className="title-stat">
                 <h3>Advanced Statistics</h3>
                 <p>Track how your links are performing accross the web with <br />our advanced Statistics dashboard</p>
@@ -36,7 +44,7 @@ const Statistics = ({ short }) => {
                     <Card item={item} key={id} />
 
                 )}
-            <hr className="line-hr" />
+                <hr className="line-hr" />
             </div>
         </div>
     )
