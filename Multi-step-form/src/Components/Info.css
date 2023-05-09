@@ -1,0 +1,40 @@
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.title p {
+    font-size: 0.9em;
+    color: hsl(231, 11%, 63%);
+}
+
+.info_form {
+    display: flex;
+    flex-direction: column;
+    padding-right: 1.5em;
+    gap: 1.4em;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.form-item input {
+    border-radius: 5px;
+    padding: 0.9em;
+    border: 2px solid hsl(231, 11%, 63%);
+    /* border: none; */
+}
+.form-item input::placeholder{
+    font-size: 1.2em;
+}

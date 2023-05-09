@@ -1,7 +1,28 @@
 import "../App.css"
-import arcade from "../../public/assets/images/icon-arcade.svg"
 
+
+const plansData = [
+    {
+        id: 1,
+        icon:"../../public/assets/images/icon-arcade.svg",
+        tittle: "Arcade",
+        monthly: "$9/mo"
+    },
+    {
+        id: 2,
+        icon:"../../public/assets/images/icon-advanced.svg",
+        tittle: "Advanced",
+        monthly: "$12/mo"
+    },
+    {
+        id: 3,
+        icon:"../../public/assets/images/icon-pro.svg",
+        tittle: "Pro",
+        monthly: "$15/mo"
+    }
+]
 const Plans = () => {
+
     return (
         <div className="plans">
             <div className="upper">
@@ -10,13 +31,16 @@ const Plans = () => {
                     <p>you have the option of monthly or yearly billing.</p>
                 </div>
                 <div className="cards">
-                    <div className="card">
-                        <img src={arcade} alt="" className="icon" />
-                        <div>
-                            <span>Arcade</span>
-                            <p>$9/mo</p>
+                    {plansData.map((item, id) =>
+                        <div className="card" key={id}>
+                            <img src={item.icon} alt="" className="icon" />
+                            <div className="card-lower">
+                                <span>{item.tittle}</span>
+                                <p>{item.monthly}</p>
+                            </div>
                         </div>
-                    </div>
+
+                    )}
                 </div>
                 <div className="toggle">
                     <label >Monthly</label>
@@ -27,9 +51,7 @@ const Plans = () => {
                     <label >Yearly</label>
                 </div>
             </div>
-            <div className="buttons">
-                <button></button>
-            </div>
+            
         </div>
     )
 }

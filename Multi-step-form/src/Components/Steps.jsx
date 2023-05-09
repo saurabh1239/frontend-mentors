@@ -22,12 +22,12 @@ const form_steps = [
         title_text: "SUMMARY"
     }
 ]
-const Steps = () => {
+const Steps = ({ step, setstep }) => {
     return (
         <div className="form-steps">
-            {form_steps.map((item,id) => (
-                <div className="step" key={id}>
-                    <div className="number">
+            {form_steps.map((item, id) => (
+                <div className="step" key={id} onClick={() => setstep(id)}>
+                    <div className={step === id ? "number-chosen" : "number"}>
                         <p>{item.id}</p>
                     </div>
                     <div className="step-info">

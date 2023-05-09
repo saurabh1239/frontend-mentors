@@ -7,6 +7,16 @@
   /* text-align: center; */
 }
 
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
 p {
   display: block;
   margin-block-start: 0;
@@ -37,7 +47,7 @@ h5 {
   display: flex;
   padding: 1em;
   height: 34em;
-  width: 47em;
+  width: 50em;
   background-color: white;
   border-radius: 1em;
   border: 1px solid hsl(217, 100%, 97%);
@@ -57,13 +67,15 @@ h5 {
   flex-direction: column;
   gap: 1.4em;
 }
+
 .step {
   display: flex;
   flex-direction: row;
   gap: 1em;
+  cursor: pointer;
 }
 
-.number{
+.number {
   /* padding: 15px; */
   width: 2.4em;
   height: 2.4em;
@@ -74,20 +86,33 @@ h5 {
   align-items: center;
   justify-content: center;
 }
-.number>p{
+.number-chosen{
+  width: 2.4em;
+  height: 2.4em;
+  border-radius: 50%;
+  border: 2px solid  hsl(206, 94%, 87%);
+  background-color:   hsl(206, 94%, 87%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.number>p {
   color: white;
 }
 
-.step-info{
+.step-info {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-.step-info>p{
-  color:hsl(231, 11%, 63%);
+
+.step-info>p {
+  color: hsl(231, 11%, 63%);
   font-size: 0.8em;
 }
-.step-info>h5{
+
+.step-info>h5 {
   color: white;
   font-size: 1em;
 }
@@ -96,100 +121,157 @@ h5 {
 .form-info {
   flex: 2;
   padding: 2em;
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
 }
 
+.steps-buttons {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.steps-buttons button {
+  padding: 0.8em;
+  border-radius: 7px;
+  border: none;
+  color: hsl(213, 96%, 18%);
+  font-weight: 600;
+}
 
 
 /* ***************************plans */
 
-.plans{
-  height: 100%;
+.plans {
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-  .upper{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-  }
-    .cards{
-      
-    }
-    .card{
-      display: flex;
-      flex-direction: column;
-      gap: 1.5em;
-      justify-content: space-around;
-      /* padding: 0.5em; */
-      width: 7em;
-      height: 10em;
-      border: 1px solid blue;
-      background-color: hsl(217, 100%, 97%);
-      border-radius: 8px;
-      padding-left: 1em;
-    }
-    .card img{
-      width: 3em;
-      height: 3em;
-    }
 
-      /* *****Toogle Swtich****************************** */
-      .toggle{
-        display:flex ;
-        gap: 1em;
-      }
-      .switch {
-        position: relative;
-        display: inline-block;
-        width: 50px;
-        height: 27px;
-      }
+.upper {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
 
-      .switch input { 
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
 
-      .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s;
-      }
+.title p {
+  font-size: 0.9em;
+  color: hsl(231, 11%, 63%);
+}
 
-      .slider:before {
-        position: absolute;
-        content: "";
-        height: 20px;
-        width: 20px;
-        left: 4px;
-        bottom: 3.5px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
-      }
+.cards {
+  display: flex;
+  gap: 1em;
+}
 
-      input:checked + .slider {
-        background-color: hsl(213, 96%, 18%)
-      }
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  justify-content: space-around;
+  /* padding: 0.5em; */
+  width: 7em;
+  height: 10em;
+  border: 1px solid hsl(206, 94%, 87%);
+  background-color: hsl(217, 100%, 97%);
+  border-radius: 8px;
+  padding-left: 1em;
+}
 
-      input:focus + .slider {
-        box-shadow: 0 0 1px hsl(213, 96%, 18%); 
-      }
+.card:hover {
+  border: 2px solid hsl(228, 100%, 84%)
+}
 
-      input:checked + .slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(22px);
-      }
+.card img {
+  width: 3em;
+  height: 3em;
+}
+
+.card-lower {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-lower span {
+  font-weight: 500;
+}
+
+.card-lower p {
+  font-size: 0.75em;
+  color: hsl(231, 11%, 63%);
+}
+
+/* *****Toogle Swtich****************************** */
+.toggle {
+  background-color: hsl(217, 100%, 97%);
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  border-radius: 5px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 27px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 3.5px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: hsl(213, 96%, 18%)
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px hsl(213, 96%, 18%);
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(22px);
+}
 
 /* Rounded sliders */
 .slider.round {
@@ -199,4 +281,5 @@ h5 {
 .slider.round:before {
   border-radius: 50%;
 }
+
 /* ******/
