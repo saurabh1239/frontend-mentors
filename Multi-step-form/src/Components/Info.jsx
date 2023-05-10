@@ -33,7 +33,7 @@ const Info = () => {
                     <div className="form-item" key={id}>
                         <label htmlFor="name">{item.label}</label>
                         <input type={item.type} placeholder={item.placeH} />
-                    </div>
+                    </div>  
                 )
                 )}
             </form>

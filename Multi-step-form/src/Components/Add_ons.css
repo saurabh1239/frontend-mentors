@@ -1,0 +1,68 @@
+.addOns {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.title p {
+    font-size: 0.9em;
+    color: hsl(231, 11%, 63%);
+}
+
+.cards-addon {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.card-addon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2em;
+    border-radius: 10px;
+    border: 1px solid hsl(213, 96%, 18%);
+    /* justify-content: center; */
+}
+
+.mid-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+
+.left-addons {
+    display: flex;
+    gap: 1.5em;
+}
+
+.left-addons>input {
+    width: 1.4em;
+    background-color: hsl(213, 96%, 18%);
+
+}
+
+.left-addons>input[type=checkbox] {
+    visibility: hidden;
+    background-color: hsl(213, 96%, 18%);
+
+}
+
+.mid-title>h3 {
+    font-size: 1em;
+    color: hsla(213, 96%, 18%, 0.895);
+}
+.mid-title p{
+    font-size: 0.8em;
+    color:hsl(231, 11%, 63%);
+}
+.price{
+    color:hsl(213, 92%, 31%);
+}
