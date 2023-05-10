@@ -5,22 +5,25 @@ const addons = [
     id: 1,
     tittle: 'Online service',
     sub: "Access to multiplayer games",
-    price: "+$1/mo"
+    monthly: "1/mo",
+    yearly: "10/yr"
   },
   {
     id: 2,
     tittle: 'Larger storage',
     sub: "Extra 1TB of cloud save",
-    price: "+$2/mo"
+    monthly: "2/mo",
+    yearly: "20/yr"
   },
   {
     id: 3,
     tittle: 'Customizable Profile',
     sub: "Custom theme on your profile",
-    price: "+$2/mo"
+    monthly: "2/mo",
+    yearly: "20/yr"
   },
 ]
-const Add_ons = () => {
+const Add_ons = ({ toggle, setToggle }) => {
   return (
     <div className="addOns">
       <div className="title">
@@ -29,7 +32,7 @@ const Add_ons = () => {
       </div>
       <div className="cards-addon">
         {
-          addons.map((item,id) =>
+          addons.map((item, id) =>
             <div className="card-addon" key={id}>
               <div className="left-addons">
                 <input type="checkbox" />
@@ -39,7 +42,11 @@ const Add_ons = () => {
                 </div>
               </div>
               <p className="price">
-                {item.price}
+                {
+                  toggle === "month" ?
+                    `+$ ${item.monthly}` :
+                    `+$ ${item.yearly}` 
+                }
               </p>
             </div>
           )

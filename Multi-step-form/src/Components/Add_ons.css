@@ -50,7 +50,7 @@
 }
 
 .left-addons>input[type=checkbox] {
-    visibility: hidden;
+    /* visibility: hidden; */
     background-color: hsl(213, 96%, 18%);
 
 }

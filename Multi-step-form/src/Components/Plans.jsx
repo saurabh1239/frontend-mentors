@@ -1,28 +1,34 @@
+import { useState } from "react"
 import "../App.css"
-
-
 const plansData = [
     {
         id: 1,
-        icon:"../../public/assets/images/icon-arcade.svg",
+        icon: "../../public/assets/images/icon-arcade.svg",
         tittle: "Arcade",
-        monthly: "$9/mo"
+        monthly: "9/mo",
+        yearly: "90/yr"
     },
     {
         id: 2,
-        icon:"../../public/assets/images/icon-advanced.svg",
+        icon: "../../public/assets/images/icon-advanced.svg",
         tittle: "Advanced",
-        monthly: "$12/mo"
+        monthly: "12/mo",
+        yearly: "120/yr"
     },
     {
         id: 3,
-        icon:"../../public/assets/images/icon-pro.svg",
+        icon: "../../public/assets/images/icon-pro.svg",
         tittle: "Pro",
-        monthly: "$15/mo"
+        monthly: "15/mo",
+        yearly: "150/yr"
     }
 ]
-const Plans = () => {
-
+const Plans = ({toggle, setToggle}) => {
+    const [planStructure, setPlanStructure] = useState(plansData[0].id);
+    const handlePlans = (e) => {
+        setPlanStructure(e)
+    }
+    console.log(toggle);
     return (
         <div className="plans">
             <div className="upper">
@@ -32,11 +38,20 @@ const Plans = () => {
                 </div>
                 <div className="cards">
                     {plansData.map((item, id) =>
-                        <div className="card" key={id}>
+                        <div className={planStructure === id ? "card-selected" : "card"}
+                            key={id}
+                            onClick={()=>handlePlans(id)}>
                             <img src={item.icon} alt="" className="icon" />
                             <div className="card-lower">
                                 <span>{item.tittle}</span>
-                                <p>{item.monthly}</p>
+                                {toggle === "month" ?
+                                    <p>${item.monthly}</p> :
+                                    <>
+                                        <p>${item.yearly}</p>
+                                        <span className="add-yr">2 months free </span>
+                                    </>
+
+                                }
                             </div>
                         </div>
 
@@ -45,13 +60,14 @@ const Plans = () => {
                 <div className="toggle">
                     <label >Monthly</label>
                     <label className="switch">
-                        <input type="checkbox" />
+                        <input type="checkbox"
+                            onClick={() => toggle == "month" ? setToggle("year") : setToggle("month")} />
                         <span className="slider round"></span>
                     </label>
-                    <label >Yearly</label>
+                    <label className="yearly-label" >Yearly</label>
                 </div>
             </div>
-            
+
         </div>
     )
 }

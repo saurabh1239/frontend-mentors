@@ -24,7 +24,8 @@ p {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
-h3{
+
+h3 {
   display: block;
   font-size: 1.17em;
   margin-block-start: 0em;
@@ -95,12 +96,13 @@ h5 {
   align-items: center;
   justify-content: center;
 }
-.number-chosen{
+
+.number-chosen {
   width: 2.4em;
   height: 2.4em;
   border-radius: 50%;
-  border: 2px solid  hsl(206, 94%, 87%);
-  background-color:   hsl(206, 94%, 87%);
+  border: 2px solid hsl(206, 94%, 87%);
+  background-color: hsl(206, 94%, 87%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -142,12 +144,23 @@ h5 {
   justify-content: space-between;
 }
 
-.steps-buttons button {
+.goback {
+  border: none;
+  background-color: transparent;
+  color: hsl(231, 11%, 63%);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 1em;
+}
+
+.nextstep {
   padding: 0.8em;
   border-radius: 7px;
   border: none;
-  color: hsl(213, 96%, 18%);
+  background-color: hsl(213, 96%, 18%);
+  color: hsl(229, 24%, 87%);
   font-weight: 600;
+  cursor: pointer;
 }
 
 
@@ -191,19 +204,47 @@ h5 {
   width: 7em;
   height: 10em;
   border: 1px solid hsl(206, 94%, 87%);
-  background-color: hsl(217, 100%, 97%);
+  /* background-color: hsl(217, 100%, 97%); */
   border-radius: 8px;
   padding-left: 1em;
+}
+
+.card-selected {
+  background-color: hsl(217, 100%, 97%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  justify-content: space-around;
+  /* padding: 0.5em; */
+  width: 7em;
+  height: 10em;
+  border: 1px solid hsl(206, 94%, 87%);
+  /* background-color: hsl(217, 100%, 97%); */
+  border-radius: 8px;
+  padding-left: 1em;
+}
+
+.card-selected:hover {
+  border: 2px solid hsl(228, 100%, 84%)
 }
 
 .card:hover {
   border: 2px solid hsl(228, 100%, 84%)
 }
 
+.icon {
+  width: 3em;
+  height: 3em;
+
+}
+
+/* .card-selected img {
+}
+
 .card img {
   width: 3em;
   height: 3em;
-}
+} */
 
 .card-lower {
   display: flex;
@@ -220,6 +261,11 @@ h5 {
   color: hsl(231, 11%, 63%);
 }
 
+.add-yr {
+  font-size: 0.8em;
+  font-weight: 400;
+}
+
 /* *****Toogle Swtich****************************** */
 .toggle {
   background-color: hsl(217, 100%, 97%);
@@ -229,6 +275,11 @@ h5 {
   justify-content: center;
   gap: 1em;
   border-radius: 5px;
+  color: hsl(231, 11%, 63%);
+}
+
+.yearly-label {
+  color: hsl(213, 96%, 18%)
 }
 
 .switch {
