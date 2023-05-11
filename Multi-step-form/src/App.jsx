@@ -54,13 +54,12 @@ function App() {
               }
             })()
           }
-          <div className="steps-buttons">
+          <div className={step === 4 ? "stop" : "steps-buttons"}>
             <button onClick={() => setstep((prev) => prev - 1)} disabled={step == 0 ? true : false} className='goback'>
               {step === 0 ? "" : "Go Back"}
             </button>
             <button onClick={() => setstep((prev) => prev + 1)} className='nextstep'>
               {step === 3 ? "Confirm" : "Next Step"}
-
             </button>
           </div>
         </div>

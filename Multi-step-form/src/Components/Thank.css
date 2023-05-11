@@ -1,0 +1,30 @@
+.thank_screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2em;
+    gap: 2em;
+    align-items: center;
+}
+.thank_screen p {
+    letter-spacing: 1px;
+    align-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .thank_screen {
+        background-color: white;
+        border-radius: 1em;
+        padding: 2em 1.4em;
+        position: absolute;
+        top: -2em;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.098),
+            0 6px 20px 0 rgba(0, 0, 0, 0.018);
+        height: 80%;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

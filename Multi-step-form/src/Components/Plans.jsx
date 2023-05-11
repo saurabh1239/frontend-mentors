@@ -38,7 +38,7 @@ const Plans = ({toggle, setToggle}) => {
                 </div>
                 <div className="cards">
                     {plansData.map((item, id) =>
-                        <div className={planStructure === id ? "card-selected" : "card"}
+                        <div className={planStructure === id ? "card selected" : "card"}
                             key={id}
                             onClick={()=>handlePlans(id)}>
                             <img src={item.icon} alt="" className="icon" />

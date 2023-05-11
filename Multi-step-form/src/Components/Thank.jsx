@@ -1,7 +1,11 @@
+import "./Thank.css"
+import thanksicon from "../../public/assets/images/icon-thank-you.svg"
 const Thank = () => {
     return (
         <div className="thank_screen">
-            <img src="" alt="" />
+            <div>
+                <img src={thanksicon} alt="" />
+            </div>
             <h3>Thank you!</h3>
             <p>
                 Thanks for confirming your subscription!we hope you

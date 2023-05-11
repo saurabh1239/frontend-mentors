@@ -3,42 +3,94 @@
     flex-direction: column;
     gap: 2em;
 }
-.selected_plan{
+
+.selected_plan {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     padding: 2em;
     background-color: hsl(217, 100%, 97%)
 }
-.selected_plan hr{
-   border:0.5px solid hsla(231, 11%, 63%, 0.18);
+
+.selected_plan hr {
+    border: 0.5px solid hsla(231, 11%, 63%, 0.18);
 
 }
-.arcade_plans{
+
+.arcade_plans {
     display: flex;
     justify-content: space-between;
-    color:hsl(213, 96%, 18%);
+    color: hsl(213, 96%, 18%);
     align-items: center;
 }
-.arcade_plans h3{
+
+.arcade_plans h3 {
     font-size: 1.1em;
 }
-.arcade_plans p{
+
+.arcade_plans p {
     font-weight: 600;
 }
-.selected_addon{
+
+.selected_addOns {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    color: hsl(213, 96%, 18%);
+    gap: 1em;
+}
+.selected_addon {
     display: flex;
     justify-content: space-between;
-    color:hsl(213, 96%, 18%)
+    color: hsl(213, 96%, 18%);
+    gap: 1em;
 }
-.selected_addon h5{
-    color:hsl(231, 11%, 63%);
+
+
+
+.selected_addon h5 {
+    color: hsl(231, 11%, 63%);
 }
-.total{
+
+.total {
     display: flex;
     padding: 2em;
     justify-content: space-between;
 }
-.total p{
-    color:hsl(231, 11%, 63%);
+
+.total p {
+    color: hsl(231, 11%, 63%);
 }
-.total h3{
+
+.total h3 {
     color: hsl(243, 100%, 62%)
+}
+
+@media only screen and (max-width: 768px) {
+    .summary {
+        background-color: white;
+        border-radius: 1em;
+        padding: 2em 1.4em;
+        position: absolute;
+        top: -2em;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.098),
+            0 6px 20px 0 rgba(0, 0, 0, 0.018);
+    }
+
+    .selected_plan {
+        display: flex;
+        flex-direction: column;
+        padding: 1em 1.4em;
+        gap: 1em;
+    }
+
+    .arcade_plans {
+        gap: 1em;
+    }
+
+    .selected_addOns {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
 }

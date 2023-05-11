@@ -18,6 +18,10 @@ const Summary = ({toggle, setToggle}) => {
               <h5>Online service</h5>
               <p>+$1/mo</p>
             </div>
+            <div className="selected_addon">
+              <h5>Larger storage</h5>
+              <p>+$1/mo</p>
+            </div>
           </div>
         </div>
         <div className="total">
