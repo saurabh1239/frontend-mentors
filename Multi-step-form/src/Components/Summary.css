@@ -39,6 +39,7 @@
     color: hsl(213, 96%, 18%);
     gap: 1em;
 }
+
 .selected_addon {
     display: flex;
     justify-content: space-between;

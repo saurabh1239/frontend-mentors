@@ -23,12 +23,8 @@ const plansData = [
         yearly: "150/yr"
     }
 ]
-const Plans = ({toggle, setToggle}) => {
-    const [planStructure, setPlanStructure] = useState(plansData[0].id);
-    const handlePlans = (e) => {
-        setPlanStructure(e)
-    }
-    console.log(toggle);
+const Plans = ({ toggle, setToggle, planStructure, setPlanStructure, handlePlans }) => {
+
     return (
         <div className="plans">
             <div className="upper">
@@ -40,7 +36,7 @@ const Plans = ({toggle, setToggle}) => {
                     {plansData.map((item, id) =>
                         <div className={planStructure === id ? "card selected" : "card"}
                             key={id}
-                            onClick={()=>handlePlans(id)}>
+                            onClick={() => handlePlans(id)}>
                             <img src={item.icon} alt="" className="icon" />
                             <div className="card-lower">
                                 <span>{item.tittle}</span>
@@ -50,7 +46,6 @@ const Plans = ({toggle, setToggle}) => {
                                         <p>${item.yearly}</p>
                                         <span className="add-yr">2 months free </span>
                                     </>
-
                                 }
                             </div>
                         </div>

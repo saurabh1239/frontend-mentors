@@ -6,20 +6,64 @@ import Info from './Components/Info';
 import Add_ons from './Components/Add_ons';
 import Summary from './Components/Summary';
 import Thank from './Components/Thank';
+const plansData = [
+  {
+    id: 1,
+    icon: "../../public/assets/images/icon-arcade.svg",
+    tittle: "Arcade",
+    monthly: "9/mo",
+    yearly: "90/yr"
+  },
+  {
+    id: 2,
+    icon: "../../public/assets/images/icon-advanced.svg",
+    tittle: "Advanced",
+    monthly: "12/mo",
+    yearly: "120/yr"
+  },
+  {
+    id: 3,
+    icon: "../../public/assets/images/icon-pro.svg",
+    tittle: "Pro",
+    monthly: "15/mo",
+    yearly: "150/yr"
+  }
+]
 
 function App() {
   const [step, setstep] = useState(0);
   const [toggle, setToggle] = useState("month");
+  const [planStructure, setPlanStructure] = useState(null);
   const [personalInfo, setPersonalInfo] = useState({
     Name: "",
     EmailAddress: "",
-    PhoneNumber: ""
+    PhoneNumber: "",
+    PlanType: null,
+    AddOnsP: ""
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
     setPersonalInfo({ ...personalInfo, [name]: value });
   }
 
+  const handlePlans = (e) => {
+    setPlanStructure(e);
+    // const Name = personalInfo.PlanType;
+    const {PlanType,value} = personalInfo
+    console.log(typeof(PlanType));
+  
+    // console.log("monthly", planStructure);
+    if (toggle === "month") {
+      if (planStructure !== null) {
+        setPersonalInfo({ ...personalInfo, [PlanType]: plansData[planStructure].monthly })
+      }
+    }
+    else {
+      if (planStructure !== null) {
+        setPersonalInfo({ ...personalInfo, [PlanType]: plansData[planStructure].yearly })
+      }
+    }
+  }
   return (
     <div className='App'>
       <div className="form">
@@ -34,17 +78,17 @@ function App() {
               }
               else if (step === 1) {
                 return (
-                  <Plans toggle={toggle} setToggle={setToggle} />
+                  <Plans toggle={toggle} setToggle={setToggle} handlePlans={handlePlans} planStructure={planStructure} setPlanStructure={setPlanStructure} />
                 )
               }
               else if (step === 2) {
                 return (
-                  <Add_ons toggle={toggle} setToggle={setToggle} />
+                  <Add_ons toggle={toggle} setToggle={setToggle} personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} />
                 )
               }
               else if (step === 3) {
                 return (
-                  <Summary toggle={toggle} setToggle={setToggle} />
+                  <Summary toggle={toggle} setToggle={setToggle} personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} />
                 )
               }
               else {
