@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import "../App.css"
+import PlansContext from "../Context/PlansContext";
 const plansData = [
     {
         id: 1,
@@ -23,7 +24,45 @@ const plansData = [
         yearly: "150/yr"
     }
 ]
-const Plans = ({ toggle, setToggle, planStructure, setPlanStructure, handlePlans }) => {
+const Plans = ({ planStructure, setPlanStructure,
+    setSelectedYearlyPlan, setSelectedMonthlyPlan, setYearly, yearly, selectedYearlyPlan, selectedMonthlyPlan }) => {
+
+
+    ////context
+    // const { monthlyPlans } = useContext(PlansContext);
+    // const { yearlyPlans } = useContext(PlansContext);
+    // const { selectedMonthlyPlan } = useContext(PlansContext);
+    // const { selectedYearlyPlan } = useContext(PlansContext);
+
+
+    const handleToggleYearly = () => {
+        setYearly((prev) => !prev);
+    };
+
+    const getMonthlyDetails = (id) => {
+        setSelectedMonthlyPlan(selectedMonthlyPlan.tittle = plansData[id].tittle)
+        setSelectedYearlyPlan(selectedMonthlyPlan.price = plansData[id].monthly)
+        console.log(selectedMonthlyPlan);
+    };
+
+    const getYearlyDetails = (id) => {
+        setSelectedYearlyPlan(selectedYearlyPlan.tittle = plansData[id].tittle)
+        setSelectedYearlyPlan(selectedYearlyPlan.price = plansData[id].yearly)
+        // setSelectedYearlyPlan.tittle = plansData[id].tittle;
+        console.log(selectedYearlyPlan);
+
+        // setNum(id + 1);
+    };
+
+    const handlePlans = (e) => {
+        if (yearly === true) {
+            console.log("true");
+            getYearlyDetails(e)
+        }
+        else {
+            getMonthlyDetails(e)
+        }
+    }
 
     return (
         <div className="plans">
@@ -33,6 +72,17 @@ const Plans = ({ toggle, setToggle, planStructure, setPlanStructure, handlePlans
                     <p>you have the option of monthly or yearly billing.</p>
                 </div>
                 <div className="cards">
+                    {/* {monthlyPlans.map((item, id) =>
+                        <div className="card"
+                            key={id}>
+                            <img src={item.img} alt="" className="icon" />
+                            <div className="card-lower">
+                                <span>{item.title}</span>
+                                <p>{item.price}</p>
+                            </div>
+                        </div>
+
+                    )} */}
                     {plansData.map((item, id) =>
                         <div className={planStructure === id ? "card selected" : "card"}
                             key={id}
@@ -40,7 +90,7 @@ const Plans = ({ toggle, setToggle, planStructure, setPlanStructure, handlePlans
                             <img src={item.icon} alt="" className="icon" />
                             <div className="card-lower">
                                 <span>{item.tittle}</span>
-                                {toggle === "month" ?
+                                {yearly === true ?
                                     <p>${item.monthly}</p> :
                                     <>
                                         <p>${item.yearly}</p>
@@ -56,7 +106,7 @@ const Plans = ({ toggle, setToggle, planStructure, setPlanStructure, handlePlans
                     <label >Monthly</label>
                     <label className="switch">
                         <input type="checkbox"
-                            onClick={() => toggle == "month" ? setToggle("year") : setToggle("month")} />
+                            onClick={handleToggleYearly} />
                         <span className="slider round"></span>
                     </label>
                     <label className="yearly-label" >Yearly</label>

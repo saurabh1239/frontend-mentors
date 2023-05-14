@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
-import arcade from "../assets/icon-arcade.svg";
-import advanced from "../assets/icon-advanced.svg";
-import pro from "../assets/icon-pro.svg";
+import arcade from "../../public/assets/images/icon-arcade.svg";
+import advanced from "../../public/assets/images/icon-advanced.svg";
+import pro from "../../public/assets/images/icon-pro.svg";
 
 const PlansContext = createContext();
 
