@@ -52,15 +52,33 @@ function App() {
     setPersonalInfo({ ...personalInfo, [name]: value });
 
   }
-  const [selectedMonthlyPlan, setSelectedMonthlyPlan] = useState({
-    tittle: "",
-    price: null,
-  });
 
-  const [selectedYearlyPlan, setSelectedYearlyPlan] = useState({
+
+  const selectedMonthlyPlan = {
     tittle: "",
-    price: null
-  })
+    price: 0
+  }
+  const selectedYearlyPlan = {
+    tittle: "",
+    price: 0
+  }
+  const selectedAddOnnYearlyPlan = {
+    tittle: "",
+    price: 0
+  }
+  const selectedAddOnnMonthlyPlan = {
+    tittle: "",
+    price: 0
+  }
+  // const [selectedMonthlyPlan, setSelectedMonthlyPlan] = useState({
+  //   tittle: "",
+  //   price: 0,
+  // });
+
+  // const [selectedYearlyPlan, setSelectedYearlyPlan] = useState({
+  //   tittle: "",
+  //   price: 0
+  // })
 
   const handlePlans = (e) => {
     setPlanStructure(e);
@@ -98,21 +116,27 @@ function App() {
                     <Plans handlePlans={handlePlans} planStructure={planStructure}
                       setPlanStructure={setPlanStructure} yearly={yearly}
                       setYearly={setYearly}
-                      setSelectedMonthlyPlan={setSelectedMonthlyPlan}
+                      // setSelectedMonthlyPlan={setSelectedMonthlyPlan}
+                      // setSelectedYearlyPlan={setSelectedYearlyPlan}
                       selectedYearlyPlan={selectedYearlyPlan}
-                      setSelectedYearlyPlan={setSelectedYearlyPlan}
                       selectedMonthlyPlan={selectedMonthlyPlan}
                     />
                   )
                 }
                 else if (step === 2) {
                   return (
-                    <Add_ons personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} />
+                    <Add_ons
+                      yearly={yearly}
+                      personalInfo={personalInfo} setPersonalInfo={setPersonalInfo}
+                      selectedAddOnnYearlyPlan={selectedAddOnnYearlyPlan}
+                      selectedAddOnnMonthlyPlan={selectedAddOnnMonthlyPlan} />
                   )
                 }
                 else if (step === 3) {
                   return (
-                    <Summary personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} />
+                    <Summary personalInfo={personalInfo} setPersonalInfo={setPersonalInfo}
+                      selectedAddOnnYearlyPlan={selectedAddOnnYearlyPlan}
+                      selectedMonthlyPlan={selectedMonthlyPlan} />
                   )
                 }
                 else {

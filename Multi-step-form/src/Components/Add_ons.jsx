@@ -23,7 +23,13 @@ const addons = [
     yearly: "20/yr"
   },
 ]
-const Add_ons = ({ toggle, setToggle }) => {
+const Add_ons = ({ yearly, selectedAddOnnYearlyPlan, selectedAddOnnMonthlyPlan }) => {
+
+  const handleAddons = () => {
+
+  }
+
+
   return (
     <div className="addOns">
       <div className="title">
@@ -43,9 +49,9 @@ const Add_ons = ({ toggle, setToggle }) => {
               </div>
               <p className="price">
                 {
-                  toggle === "month" ?
+                  yearly === false ?
                     `+$ ${item.monthly}` :
-                    `+$ ${item.yearly}` 
+                    `+$ ${item.yearly}`
                 }
               </p>
             </div>

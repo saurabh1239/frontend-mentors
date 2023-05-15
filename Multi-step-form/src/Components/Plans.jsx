@@ -6,26 +6,27 @@ const plansData = [
         id: 1,
         icon: "../../public/assets/images/icon-arcade.svg",
         tittle: "Arcade",
-        monthly: "9/mo",
-        yearly: "90/yr"
+        monthly: 9,
+        yearly: 90
     },
     {
         id: 2,
         icon: "../../public/assets/images/icon-advanced.svg",
         tittle: "Advanced",
-        monthly: "12/mo",
-        yearly: "120/yr"
+        monthly: 12,
+        yearly: 120
     },
     {
         id: 3,
         icon: "../../public/assets/images/icon-pro.svg",
         tittle: "Pro",
-        monthly: "15/mo",
-        yearly: "150/yr"
+        monthly: 15,
+        yearly: 150
     }
 ]
 const Plans = ({ planStructure, setPlanStructure,
-    setSelectedYearlyPlan, setSelectedMonthlyPlan, setYearly, yearly, selectedYearlyPlan, selectedMonthlyPlan }) => {
+    // setSelectedYearlyPlan, setSelectedMonthlyPlan,
+    setYearly, yearly, selectedYearlyPlan, selectedMonthlyPlan }) => {
 
 
     ////context
@@ -40,14 +41,18 @@ const Plans = ({ planStructure, setPlanStructure,
     };
 
     const getMonthlyDetails = (id) => {
-        setSelectedMonthlyPlan(selectedMonthlyPlan.tittle = plansData[id].tittle)
-        setSelectedYearlyPlan(selectedMonthlyPlan.price = plansData[id].monthly)
+        selectedMonthlyPlan.tittle = plansData[id].tittle;
+        selectedMonthlyPlan.price = plansData[id].monthly;
+        // setSelectedMonthlyPlan(selectedMonthlyPlan.tittle = plansData[id].tittle)
+        // setSelectedMonthlyPlan(selectedMonthlyPlan.price = plansData[id].monthly)
         console.log(selectedMonthlyPlan);
     };
 
     const getYearlyDetails = (id) => {
-        setSelectedYearlyPlan(selectedYearlyPlan.tittle = plansData[id].tittle)
-        setSelectedYearlyPlan(selectedYearlyPlan.price = plansData[id].yearly)
+        selectedYearlyPlan.tittle = plansData[id].tittle;
+        selectedYearlyPlan.price = plansData[id].yearly;
+        // setSelectedYearlyPlan(selectedYearlyPlan.tittle = plansData[id].tittle)
+        // setSelectedYearlyPlan(selectedYearlyPlan.price = plansData[id].yearly)
         // setSelectedYearlyPlan.tittle = plansData[id].tittle;
         console.log(selectedYearlyPlan);
 
@@ -90,7 +95,7 @@ const Plans = ({ planStructure, setPlanStructure,
                             <img src={item.icon} alt="" className="icon" />
                             <div className="card-lower">
                                 <span>{item.tittle}</span>
-                                {yearly === true ?
+                                {yearly === false ?
                                     <p>${item.monthly}</p> :
                                     <>
                                         <p>${item.yearly}</p>
@@ -106,7 +111,10 @@ const Plans = ({ planStructure, setPlanStructure,
                     <label >Monthly</label>
                     <label className="switch">
                         <input type="checkbox"
-                            onClick={handleToggleYearly} />
+                            onChange={handleToggleYearly}
+                            checked={yearly}
+                        // {...yearly === true ? "checked" : "unchecked"}
+                        />
                         <span className="slider round"></span>
                     </label>
                     <label className="yearly-label" >Yearly</label>
