@@ -24,9 +24,11 @@ const plansData = [
         yearly: 150
     }
 ]
-const Plans = ({ planStructure, setPlanStructure,
-    // setSelectedYearlyPlan, setSelectedMonthlyPlan,
-    setYearly, yearly, selectedYearlyPlan, selectedMonthlyPlan }) => {
+const Plans = ({ plansData,
+    planStructure, setPlanStructure,
+    yearly, setYearly,
+    selectedYearlyPlan, selectedMonthlyPlan,
+    setSelectedYearlyPlan, setSelectedMonthlyPlan }) => {
 
 
     ////context
@@ -41,24 +43,19 @@ const Plans = ({ planStructure, setPlanStructure,
     };
 
     const getMonthlyDetails = (id) => {
-        selectedMonthlyPlan.tittle = plansData[id].tittle;
-        selectedMonthlyPlan.price = plansData[id].monthly;
-        // setSelectedMonthlyPlan(selectedMonthlyPlan.tittle = plansData[id].tittle)
-        // setSelectedMonthlyPlan(selectedMonthlyPlan.price = plansData[id].monthly)
-        console.log(selectedMonthlyPlan);
+        setSelectedMonthlyPlan({ tittle: plansData[id].tittle, price: plansData[id].monthly })
+
     };
 
     const getYearlyDetails = (id) => {
-        selectedYearlyPlan.tittle = plansData[id].tittle;
-        selectedYearlyPlan.price = plansData[id].yearly;
-        // setSelectedYearlyPlan(selectedYearlyPlan.tittle = plansData[id].tittle)
-        // setSelectedYearlyPlan(selectedYearlyPlan.price = plansData[id].yearly)
-        // setSelectedYearlyPlan.tittle = plansData[id].tittle;
-        console.log(selectedYearlyPlan);
+        setSelectedYearlyPlan({ tittle: plansData[id].tittle, price: plansData[id].yearly })
 
-        // setNum(id + 1);
     };
 
+    //hamdling ui logic
+    // const selectplanIcon = (e) => {
+
+    //handling toggle
     const handlePlans = (e) => {
         if (yearly === true) {
             console.log("true");
@@ -77,35 +74,46 @@ const Plans = ({ planStructure, setPlanStructure,
                     <p>you have the option of monthly or yearly billing.</p>
                 </div>
                 <div className="cards">
-                    {/* {monthlyPlans.map((item, id) =>
-                        <div className="card"
-                            key={id}>
-                            <img src={item.img} alt="" className="icon" />
-                            <div className="card-lower">
-                                <span>{item.title}</span>
-                                <p>{item.price}</p>
+                    {yearly ?
+                        plansData.map((item, id) =>
+                            <div
+                                className={planStructure === id ? "card selected" : "card"}
+                                key={id}
+                                onClick={() => handlePlans(id)}>
+                                <img src={item.icon} alt="" className="icon" />
+                                <div className="card-lower">
+                                    <span>{item.tittle}</span>
+                                    {yearly === false ?
+                                        <p>${item.monthly}</p> :
+                                        <>
+                                            <p>${item.yearly}</p>
+                                            <span className="add-yr">2 months free </span>
+                                        </>
+                                    }
+                                </div>
                             </div>
-                        </div>
 
-                    )} */}
-                    {plansData.map((item, id) =>
-                        <div className={planStructure === id ? "card selected" : "card"}
-                            key={id}
-                            onClick={() => handlePlans(id)}>
-                            <img src={item.icon} alt="" className="icon" />
-                            <div className="card-lower">
-                                <span>{item.tittle}</span>
-                                {yearly === false ?
-                                    <p>${item.monthly}</p> :
-                                    <>
-                                        <p>${item.yearly}</p>
-                                        <span className="add-yr">2 months free </span>
-                                    </>
-                                }
+                        )
+                        :
+                        plansData.map((item, id) =>
+                            <div
+                                className={planStructure === id ? "card selected" : "card"}
+                                key={id}
+                                onClick={() => handlePlans(id)}>
+                                <img src={item.icon} alt="" className="icon" />
+                                <div className="card-lower">
+                                    <span>{item.tittle}</span>
+                                    {yearly === false ?
+                                        <p>${item.monthly}</p> :
+                                        <>
+                                            <p>${item.yearly}</p>
+                                            <span className="add-yr">2 months free </span>
+                                        </>
+                                    }
+                                </div>
                             </div>
-                        </div>
-
-                    )}
+                        )
+                    }
                 </div>
                 <div className="toggle">
                     <label >Monthly</label>

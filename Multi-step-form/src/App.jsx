@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Steps from './Components/Steps'
 import Plans from './Components/Plans'
@@ -40,6 +40,8 @@ function App() {
   const [step, setstep] = useState(0);
   const [planStructure, setPlanStructure] = useState(null);
   const [yearly, setYearly] = useState(false)
+
+  /////info states
   const [personalInfo, setPersonalInfo] = useState({
     Name: "",
     EmailAddress: "",
@@ -47,57 +49,44 @@ function App() {
     PlanType: null,
     AddOnsP: ""
   });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setPersonalInfo({ ...personalInfo, [name]: value });
 
   }
 
+  ///checkbox states
+  const [checkbox, setCheckbox] = useState(
+    new Array(3).fill(false)
+  )
+  const [selectedAddOnnYearlyPlan, setselectedAddOnnYearlyPlan] = useState([]);
+  const [selectedAddOnnMonthlyPlan, setselectedAddOnnMonthlyPlan] = useState([]);
 
-  const selectedMonthlyPlan = {
-    tittle: "",
-    price: 0
-  }
-  const selectedYearlyPlan = {
-    tittle: "",
-    price: 0
-  }
-  const selectedAddOnnYearlyPlan = {
-    tittle: "",
-    price: 0
-  }
-  const selectedAddOnnMonthlyPlan = {
-    tittle: "",
-    price: 0
-  }
-  // const [selectedMonthlyPlan, setSelectedMonthlyPlan] = useState({
-  //   tittle: "",
-  //   price: 0,
-  // });
-
-  // const [selectedYearlyPlan, setSelectedYearlyPlan] = useState({
-  //   tittle: "",
-  //   price: 0
-  // })
+  const [selectedMonthlyPlan, setSelectedMonthlyPlan] = useState(
+    {
+      tittle: "",
+      price: 0
+    }
+  )
+  const [selectedYearlyPlan, setSelectedYearlyPlan] = useState(
+    {
+      tittle: "",
+      price: 0
+    }
+  )
+  // console.log("selectedAddOnnMonthlyPlan", selectedAddOnnMonthlyPlan);
 
   const handlePlans = (e) => {
     setPlanStructure(e);
-    // const Name = personalInfo.PlanType;
-    const { PlanType, value } = personalInfo
-    console.log(typeof (PlanType));
-
-    // console.log("monthly", planStructure);
-    // if (toggle === "month") {
-    //   if (planStructure !== null) {
-    //     setPersonalInfo({ ...personalInfo, [PlanType]: plansData[planStructure].monthly })
-    //   }
-    // }
-    // else {
-    //   if (planStructure !== null) {
-    //     setPersonalInfo({ ...personalInfo, [PlanType]: plansData[planStructure].yearly })
-    //   }
-    // }
   }
+
+  ///useState depends on toggle
+
+  useEffect(() => {
+    setCheckbox(new Array(3).fill(false))
+  }, [yearly])
+
   return (
     <BrowserRouter>
       <div className='App'>
@@ -113,13 +102,16 @@ function App() {
                 }
                 else if (step === 1) {
                   return (
-                    <Plans handlePlans={handlePlans} planStructure={planStructure}
-                      setPlanStructure={setPlanStructure} yearly={yearly}
-                      setYearly={setYearly}
-                      // setSelectedMonthlyPlan={setSelectedMonthlyPlan}
-                      // setSelectedYearlyPlan={setSelectedYearlyPlan}
+                    <Plans
+                      plansData={plansData}
+                      handlePlans={handlePlans} planStructure={planStructure}
                       selectedYearlyPlan={selectedYearlyPlan}
                       selectedMonthlyPlan={selectedMonthlyPlan}
+                      yearly={yearly}
+                      setYearly={setYearly}
+                      setPlanStructure={setPlanStructure}
+                      setSelectedMonthlyPlan={setSelectedMonthlyPlan}
+                      setSelectedYearlyPlan={setSelectedYearlyPlan}
                     />
                   )
                 }
@@ -129,14 +121,24 @@ function App() {
                       yearly={yearly}
                       personalInfo={personalInfo} setPersonalInfo={setPersonalInfo}
                       selectedAddOnnYearlyPlan={selectedAddOnnYearlyPlan}
-                      selectedAddOnnMonthlyPlan={selectedAddOnnMonthlyPlan} />
+                      selectedAddOnnMonthlyPlan={selectedAddOnnMonthlyPlan}
+                      setselectedAddOnnYearlyPlan={setselectedAddOnnYearlyPlan}
+                      setselectedAddOnnMonthlyPlan={setselectedAddOnnMonthlyPlan}
+                      checkbox={checkbox}
+                      setCheckbox={setCheckbox}
+                    />
                   )
                 }
                 else if (step === 3) {
                   return (
-                    <Summary personalInfo={personalInfo} setPersonalInfo={setPersonalInfo}
+                    <Summary
+                      yearly={yearly} setYearly={setYearly}
+                      personalInfo={personalInfo} setPersonalInfo={setPersonalInfo}
+                      selectedAddOnnMonthlyPlan={selectedAddOnnMonthlyPlan}
                       selectedAddOnnYearlyPlan={selectedAddOnnYearlyPlan}
-                      selectedMonthlyPlan={selectedMonthlyPlan} />
+                      selectedMonthlyPlan={selectedMonthlyPlan}
+                      selectedYearlyPlan={selectedYearlyPlan}
+                    />
                   )
                 }
                 else {
