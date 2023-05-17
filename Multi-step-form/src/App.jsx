@@ -6,9 +6,6 @@ import Info from './Components/Info';
 import Add_ons from './Components/Add_ons';
 import Summary from './Components/Summary';
 import Thank from './Components/Thank';
-// import PlansProvider from './Context/PlansContext';
-// import AddOnsProvider from './Context/AddsOnContext'
-// import PlansContext from './Context/PlansContext';
 
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -18,7 +15,7 @@ const plansData = [
     icon: "../../public/assets/images/icon-arcade.svg",
     tittle: "Arcade",
     monthly: "9/mo",
-    yearly: "90/yr"
+    yearly: "90/yr",
   },
   {
     id: 2,
@@ -149,7 +146,8 @@ function App() {
               })()
             }
             <div className={step === 4 ? "stop" : "steps-buttons"}>
-              <button onClick={() => setstep((prev) => prev - 1)} disabled={step == 0 ? true : false} className='goback'>
+              <button onClick={() => setstep((prev) => prev - 1)}
+                disabled={step == 0 ? true : false} className='goback'>
                 {step === 0 ? "" : "Go Back"}
               </button>
               <button onClick={() => setstep((prev) => prev + 1)} className='nextstep'>

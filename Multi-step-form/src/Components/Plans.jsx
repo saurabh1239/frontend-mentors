@@ -77,7 +77,7 @@ const Plans = ({ plansData,
                     {yearly ?
                         plansData.map((item, id) =>
                             <div
-                                className={planStructure === id ? "card selected" : "card"}
+                                className={selectedYearlyPlan.tittle === item.tittle ? "card Selected" : "card"}
                                 key={id}
                                 onClick={() => handlePlans(id)}>
                                 <img src={item.icon} alt="" className="icon" />
@@ -97,7 +97,7 @@ const Plans = ({ plansData,
                         :
                         plansData.map((item, id) =>
                             <div
-                                className={planStructure === id ? "card selected" : "card"}
+                                className={selectedMonthlyPlan.tittle === item.tittle ? "card Selected" : "card"}
                                 key={id}
                                 onClick={() => handlePlans(id)}>
                                 <img src={item.icon} alt="" className="icon" />

@@ -70,7 +70,7 @@ const Add_ons = ({ yearly, selectedAddOnnYearlyPlan,
       <div className="cards-addon">
         {
           addons.map((item, id) =>
-            <div className="card-addon" key={id} >
+            <div className={checkbox[id] === true ? "card-addon selected" : "card-addon"} key={id} >
               <div className="left-addons">
                 <input type="checkbox"
                   checked={checkbox[id]}

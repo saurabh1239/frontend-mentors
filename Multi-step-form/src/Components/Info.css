@@ -28,6 +28,13 @@
     flex-direction: column;
     gap: 0.5em;
 }
+.formInputUpper{
+    display: flex;
+    justify-content: space-between;
+}
+.formInputUpper h5{
+    color: red;
+}
 
 .form-item input {
     border-radius: 5px;

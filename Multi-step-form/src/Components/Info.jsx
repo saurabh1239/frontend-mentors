@@ -37,8 +37,12 @@ const Info = ({ personalInfo, setPersonalInfo, handleChange }) => {
             <form action="" className="info_form">
                 {infoData.map((item, id) => (
                     <div className="form-item" key={id}>
-                        <label htmlFor="name">{item.label}</label>
-                        <input type={item.type} placeholder={item.placeH} value={personalInfo.name} onChange={(e) => handleChange(e)} name={item.name} />
+                        <span className="formInputUpper">
+                            <label htmlFor="name">{item.label}</label>
+                            {/* <h5>This field is required</h5> */}
+                        </span>
+                        <input type={item.type} autoFocus={true}
+                            placeholder={item.placeH} value={personalInfo.name} onChange={(e) => handleChange(e)} name={item.name} required />
                     </div>
                 )
                 )}

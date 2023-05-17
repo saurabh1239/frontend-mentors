@@ -31,6 +31,9 @@
     border: 1px solid hsl(213, 96%, 18%);
     /* justify-content: center; */
 }
+.card-addon.selected{
+    background-color: hsl(217, 100%, 97%);
+}
 
 .mid-title {
     display: flex;
