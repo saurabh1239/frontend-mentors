@@ -7,7 +7,7 @@ import Add_ons from './Components/Add_ons';
 import Summary from './Components/Summary';
 import Thank from './Components/Thank';
 
-
+console.log(window.location.pathname)
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 const plansData = [
   {
@@ -90,7 +90,45 @@ function App() {
         <div className="form">
           <Steps setstep={setstep} step={step} />
           <div className="form-info">
-            {
+            <Routes>
+              <Route path="/"
+                element={<Info personalInfo={personalInfo}
+                  setPersonalInfo={personalInfo} handleChange={handleChange} />} />
+              <Route path="/selectplan"
+                element={<Plans
+                  plansData={plansData}
+                  handlePlans={handlePlans} planStructure={planStructure}
+                  selectedYearlyPlan={selectedYearlyPlan}
+                  selectedMonthlyPlan={selectedMonthlyPlan}
+                  yearly={yearly}
+                  setYearly={setYearly}
+                  setPlanStructure={setPlanStructure}
+                  setSelectedMonthlyPlan={setSelectedMonthlyPlan}
+                  setSelectedYearlyPlan={setSelectedYearlyPlan}
+                />} />
+              <Route path="/addons"
+                element={<Add_ons
+                  yearly={yearly}
+                  personalInfo={personalInfo} setPersonalInfo={setPersonalInfo}
+                  selectedAddOnnYearlyPlan={selectedAddOnnYearlyPlan}
+                  selectedAddOnnMonthlyPlan={selectedAddOnnMonthlyPlan}
+                  setselectedAddOnnYearlyPlan={setselectedAddOnnYearlyPlan}
+                  setselectedAddOnnMonthlyPlan={setselectedAddOnnMonthlyPlan}
+                  checkbox={checkbox}
+                  setCheckbox={setCheckbox}
+                />} />
+              <Route path="/summary"
+                element={<Summary
+                  yearly={yearly} setYearly={setYearly}
+                  personalInfo={personalInfo} setPersonalInfo={setPersonalInfo}
+                  selectedAddOnnMonthlyPlan={selectedAddOnnMonthlyPlan}
+                  selectedAddOnnYearlyPlan={selectedAddOnnYearlyPlan}
+                  selectedMonthlyPlan={selectedMonthlyPlan}
+                  selectedYearlyPlan={selectedYearlyPlan}
+                />} />
+              <Route path="/thankyou" element={<Thank />} />
+            </Routes>
+            {/* {
               (() => {
                 if (step === 0) {
                   return (
@@ -144,7 +182,7 @@ function App() {
                   )
                 }
               })()
-            }
+            } */}
             <div className={step === 4 ? "stop" : "steps-buttons"}>
               <button onClick={() => setstep((prev) => prev - 1)}
                 disabled={step == 0 ? true : false} className='goback'>

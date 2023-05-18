@@ -1,4 +1,6 @@
+import { NavLink } from "react-router-dom"
 import "../App.css"
+import { StepsData } from "../Constants/StepsData"
 
 const form_steps = [
     {
@@ -22,13 +24,17 @@ const form_steps = [
         title_text: "SUMMARY"
     }
 ]
+// onClick={() => setstep(id)}
 const Steps = ({ step, setstep }) => {
     return (
         <div className="form-steps">
-            {form_steps.map((item, id) => (
-                <div className="step" key={id} onClick={() => setstep(id)}>
+            {StepsData.map((item, id) => (
+                <div className="step" key={id} >
                     <div className={step === id ? "number-chosen" : "number"}>
-                        <p>{item.id}</p>
+                        <NavLink
+                            to={item.linkTo}>
+                            {item.id}
+                        </NavLink>
                     </div>
                     <div className="step-info">
                         <p>{item.title}</p>

@@ -1,0 +1,18 @@
+.planetFooter{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em 2em;
+    /* flex-direction: column; */
+    gap: 1em;
+    margin-bottom: 1em;
+    /* width:70%    ; */
+}
+.factChip{
+    padding: 2em;
+    border: 1px solid rgba(245, 245, 245, 0.253);
+    width:15em ;
+    cursor: pointer;
+}
+.factChip>h4{
+    font-size: 2em;
+}
