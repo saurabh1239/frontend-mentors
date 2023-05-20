@@ -16,7 +16,7 @@ const cards = [
         icon: "../../public/images/icon-fully-customizable.svg"
     },
 ]
-const Statistics = ({ short, link }) => {
+const Statistics = ({ short, link, handleCopy }) => {
     return (
         <div className='statistic'>
             {
@@ -31,7 +31,7 @@ const Statistics = ({ short, link }) => {
                                 {short.full_short_link
                                 }
                             </p>
-                            <button>Copy</button>
+                            <button onClick={handleCopy}>Copy</button>
                         </span>
                     </div>
             }

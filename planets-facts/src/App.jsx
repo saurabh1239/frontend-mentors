@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import PlanetFooter from './Components/PlanetFooter.jsx'
 import './App.css'
 import Data from './Constant/Data.js';
+import JumpIcon from "../public/assets/assets/icon-source.svg"
 
 function App() {
   const [structureView, setStructureView] = useState("overview");
@@ -103,8 +104,9 @@ function App() {
             <p>
               {content}
             </p>
-            <span>Source:
-              <a href={source}>Wikipedia</a>
+            <span>Source: Wikipedia
+
+              <a href={source}><img src={JumpIcon} /></a>
             </span>
             <ul className='structureView'>
               <li onClick={handleOverview}

@@ -12,20 +12,27 @@ function App() {
   const [link, setLink] = useState("https://www.w3schools.com/default");
   const [short, setShorts] = useState("")
   const [error, setError] = useState(false)
+  const [open,setOpen] = useState(false);
 
   const handleChange = (e) => {
     setLink(e.target.value)
+    // alert()
   }
   const handleSubmit = () => {
     link.length === 0 ? setError(true) : setError(false); getData();
     // error === false ? setError(false) : setError(true)
   }
+  const handleCopy = () => {
+    console.log("short", short.full_short_link);
+    navigator.clipboard.writeText(short.full_short_link);//to copy the text
+  }
+
   const getData = async () => {
     try {
       const response = await fetch(`https://api.shrtco.de/v2/shorten?url=${link}`);
       const data = await response.json();
       setShorts(data.result)
-      console.log(data);
+      // console.log(data);
     }
     catch (error) {
       console.log(error);
@@ -52,7 +59,7 @@ function App() {
         </div>
         <SearchBar link={link} handleChange={handleChange} error={error} handleSubmit={handleSubmit} />
       </div>
-      <Statistics short={short} link={link}/>
+      <Statistics short={short} link={link} handleCopy={handleCopy} />
       <Banner />
       <Footer />
     </div>

@@ -98,7 +98,9 @@ p {
   font-weight: 600;
   cursor: pointer;
 }
-
+.planets>li{
+  font-size: 0.8em;
+}
 /* planet css */
 .planet {
   background-image: url("../public/assets/background-stars.svg");
@@ -147,7 +149,12 @@ p {
   /* flex: 1; */
   display: flex;
   flex-direction: column;
-  gap: 3em;
+  gap: 2em;
+}
+.planetDescription>h1{
+  font-size: 4em;
+  text-transform: uppercase;
+  /* line-height: 1em; */
 }
 
 .planetDescription>p {
@@ -158,7 +165,7 @@ p {
   white-space: pre-line;
 }
 
-.structureView {
+.structureView   {
   list-style: none;
   display: flex;
   flex-direction: column;
