@@ -53,10 +53,10 @@ p {
   height: 100%;
   background-color: rgb(255, 255, 255);
   /* overflow-x: hidden  ; */
-    /* display:flex;
+  /* display:flex;
   flex-direction: column;
   align-content: center; */
-    /* margin: 2rem; */
+  /* margin: 2rem; */
 }
 
 ul {
@@ -72,13 +72,9 @@ ul {
   height: 100%;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  overflow-x:hidden;
-  /* position: relative; */
-  /* margin: 0 5em 0 5em; */
-  /* padding: 2rem 5rem 0 5rem; */
   padding-top: 2rem;
   /* width: 70%; */
 }
@@ -96,7 +92,7 @@ ul {
 
 .logo {
   display: flex;
-  gap: 4em;
+  gap: 4rem;
   align-self: center;
 
 }
@@ -106,7 +102,7 @@ ul {
   /* height: 100%; */
   display: flex;
   flex-direction: row;
-  align-items: center ;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -220,7 +216,7 @@ searchbar
   z-index: 1;
 }
 
-.searchbar>div{
+.searchbar>div {
 
   /* width: 63em; */
   display: flex;
@@ -228,6 +224,7 @@ searchbar
   gap: 1em;
   justify-content: space-between;
 }
+
 .input {
   width: 95%;
   padding: 1.3em;
@@ -236,23 +233,27 @@ searchbar
   border: none;
   /* min-width: 75em; */
 }
-.input::placeholder{
+
+.input::placeholder {
   letter-spacing: 3px;
 
 }
-.error-input{
+
+.error-input {
   color: red;
   width: 90%;
   padding: 1.3em;
   border-radius: 7px;
   font-size: 0.7em;
   border-color: red;
-} 
-.error-input::placeholder{
+}
+
+.error-input::placeholder {
   color: red;
   letter-spacing: 3px;
 }
-.span-error{
+
+.span-error {
   color: red;
   font-size: 0.7em;
 }
@@ -280,8 +281,9 @@ searchbar
 
   /* justify-content: center; */
 }
-.result-cards{
-  width:70%;
+
+.result-cards {
+  width: 70%;
   padding: 1em;
   background-color: white;
   position: relative;
@@ -289,12 +291,14 @@ searchbar
   justify-content: space-between;
   /* gap: 10em; */
 }
-.result-cards>span{
+
+.result-cards>span {
   display: flex;
   gap: 1.5em;
   color: hsl(180, 66%, 49%);
 }
-.result-cards>span>button{
+
+.result-cards>span>button {
   width: 7em;
   border-radius: 3px;
   border: none;
@@ -302,6 +306,7 @@ searchbar
   background-color: hsl(180, 66%, 49%);
   color: white;
 }
+
 .title-stat {
   display: flex;
   flex-direction: column;
@@ -462,9 +467,11 @@ searchbar
   cursor: pointer;
 }
 
-.menu-footer>ul :hover{
-  color: hsl(180, 66%, 49%);;
+.menu-footer>ul :hover {
+  color: hsl(180, 66%, 49%);
+  ;
 }
+
 .social {
   display: flex;
   justify-content: flex-start;
@@ -475,13 +482,227 @@ searchbar
 
 }
 
-@media screen and (max-width: 932px) {
+@media screen and (max-width: 900px) {
+  .body {
+    overflow-x: hidden;
+  }
+
+  .header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* padding: 0 10em; */
+    justify-content: space-evenly;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin-bottom: 1em;
+    /* width: 100%; */
+  }
+
+  .left-h1 {
+    width: 8em;
+    font-size: 3em;
+  }
+
+  .right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: static; */
+    /* overflow-x: hidden; */
+  }
+
+  .right>img {
+    position: static;
+    width: 70%;
+  }
+
+  .searchbar {
+    position: static;
+  }
+
   .line-hr {
     width: 27em;
   }
-  .searchbar{
+
+  .searchbar {
     background-color: hsl(257, 27%, 26%);
     /* background: url("../public/images/bg-boost-mobile.svg"); */
   }
+
+  .result-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .result-cards>span {
+    display: flex;
+    /* gap: 2em; */
+    justify-content: space-between;
+  }
+
+  .stat-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card {
+    width: 60%;
+  }
+
+  .line-hr {
+    width: 0.5px;
+    height: 32em;
+    align-self: center;
+  }
+
+  /* footer  */
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+  }
 }
+
 /* 1120 */
+
+
+
+@media only screen and (max-width: 450px) {
+  .header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5em;
+    /* padding: 0 5em; */
+    /* justify-content: space-between; */
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin-bottom: 1em;
+    /* width: 100%; */
+  }
+
+  .left-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .left-h1 {
+    width: 75%;
+    font-size: 2em;
+    align-self: center;
+  }
+
+  .hero-p {
+    font-size: 1em;
+    width: 75%;
+    align-self: center;
+  }
+
+  .right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: static; */
+    /* overflow-x: hidden; */
+  }
+
+  .right>img {
+    position: static;
+    width: 70%;
+  }
+
+  .searchbar>div {
+    display: flex;
+    flex-direction: column;
+    position: static;
+    background-color: hsl(257, 27%, 26%);
+  }
+  .searchbar>div>input{
+    width: 90%;
+  }
+
+  .searchbar>div>button {
+    border-radius: 5px;
+    width: 100%;
+    padding: 0.8em;
+  }
+
+  .line-hr {
+    width: 27em;
+  }
+
+  .result-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .result-cards>span {
+    display: flex;
+    /* gap: 2em; */
+    justify-content: space-between;
+  }
+
+  .stat-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card {
+    width: 60%;
+  }
+
+  .line-hr {
+    width: 0.5px;
+    height: 32em;
+    align-self: center;
+  }
+
+  /* footer  */
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+  }
+
+}

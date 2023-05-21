@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import './App.css'
 import Header from './Components/header'
@@ -9,10 +9,13 @@ import Banner from './Components/Banner'
 import Statistics from './Components/Statistics'
 
 function App() {
+  //window dimensions
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+  //states
   const [link, setLink] = useState("https://www.w3schools.com/default");
   const [short, setShorts] = useState("")
   const [error, setError] = useState(false)
-  const [open,setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleChange = (e) => {
     setLink(e.target.value)
@@ -40,14 +43,24 @@ function App() {
   };
   useEffect(() => {
     getData();
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
   }, [])
+  // console.log(windowSize);
   return (
     <div className="App">
       <div className="body">
-        <Header />
+        <Header windowSize={windowSize} />
         <div className='hero'>
           <div className="left">
-            <div>
+            <div className='left-div'>
               <h1 className='left-h1'>More than just shorter links</h1>
               <p className='hero-p'>Build your brand's recognition and get detailed insights on how your links are performing</p>
             </div>
@@ -66,4 +79,8 @@ function App() {
   )
 }
 
-export default App
+function getWindowSize() {
+  const { innerWidth, innerHeight } = window;
+  return { innerWidth, innerHeight };
+}
+export default App;

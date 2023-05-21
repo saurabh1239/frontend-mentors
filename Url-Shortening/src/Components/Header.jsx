@@ -2,7 +2,7 @@
 import "../App.css"
 import logo from "../../public/images/logo.svg"
 
-const Header = () => {
+const Header = ({ windowSize }) => {
     const Hamburger = () => {
         return (
             <svg viewBox="0 0 100 80" width="30" height="30" fill="grey">
@@ -15,24 +15,28 @@ const Header = () => {
     return (
         <div className='header'>
             <img src={logo} alt="" />
-            <Hamburger />
-            <div className="logo">
-                <div className="menu">
-                    <ul className="menuItem">
-                        <li>Features</li>
-                        <li>Pricing</li>
-                        <li>Resources</li>
-                    </ul>
-                </div>
-                <div>
-                    <ul className="profile">
-                        <li>Login</li>
-                        <button className='profile-button'>
-                            Sign Up
-                        </button>
-                    </ul>
-                </div>
-            </div>
+            {
+                windowSize.innerWidth < 900 ?
+                    <Hamburger />
+                    :
+                    <div className="logo">
+                        <div className="menu">
+                            <ul className="menuItem">
+                                <li>Features</li>
+                                <li>Pricing</li>
+                                <li>Resources</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul className="profile">
+                                <li>Login</li>
+                                <button className='profile-button'>
+                                    Sign Up
+                                </button>
+                            </ul>
+                        </div>
+                    </div>
+            }
         </div>
     )
 }
