@@ -57,7 +57,7 @@ function App() {
   return (
     <div className="App">
       <div className="body">
-        <Header windowSize={windowSize} />
+        <Header windowSize={windowSize}  open={open} setOpen={setOpen}/>
         <div className='hero'>
           <div className="left">
             <div className='left-div'>

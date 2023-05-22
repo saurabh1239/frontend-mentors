@@ -37,7 +37,7 @@ const Statistics = ({ short, link, handleCopy }) => {
             }
             <div className="title-stat">
                 <h3>Advanced Statistics</h3>
-                <p>Track how your links are performing accross the web with <br />our advanced Statistics dashboard</p>
+                <p>Track how your links are performing accross the web with our advanced Statistics dashboard</p>
             </div>
             <div className="stat-card">
                 {cards.map((item, id) =>

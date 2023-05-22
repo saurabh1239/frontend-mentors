@@ -487,12 +487,68 @@ searchbar
     overflow-x: hidden;
   }
 
+  /* header */
+
   .header {
     width: 100%;
     display: flex;
     align-items: center;
     /* padding: 0 10em; */
     justify-content: space-evenly;
+  }
+
+  .mobile-header-organiser {
+    position: relative;
+    /* filter: blur(0.2px); */
+  }
+
+  .mobile-drawer {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    background-color: hsla(0, 0%, 100%, 0);
+    padding: 1em 1.4em;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -30px;
+    right: -50px;
+    z-index: 1;
+    gap: 0.3em;
+    border-radius: 5px;
+    font-size: 1.2em;
+    /* filter: blur(8px); */
+  }
+
+  .mobile-drawer>hr {
+    width: 100%;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+
+  .mobile-menuItem {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    font-size: 1em;
+    font-weight: 700;
+    gap: 0.3em;
+  }
+
+  .mobile-profile {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+  }
+
+  .mobile-profile>button {
+    font-weight: 500;
+    background-color: hsl(180, 66%, 49%);
+    border: none;
+    padding: 2px;
+    color: white;
+    border-radius: 8px;
   }
 
   .hero {
@@ -588,22 +644,79 @@ searchbar
 
 
 @media only screen and (max-width: 450px) {
+
+  /* header */
   .header {
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 5em;
+    gap: 6em;
     /* padding: 0 5em; */
     /* justify-content: space-between; */
   }
 
+  .mobile-header-organiser {
+    position: relative;
+    /* filter: blur(0.2px); */
+  }
+
+  .mobile-drawer {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    background-color: hsla(0, 0%, 100%, 0);
+    padding: 0.8em 1em;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -19px;
+    right: -1.2em;
+    z-index: 1;
+    gap: 0.3em;
+    border-radius: 5px;
+    font-size: 0.9em;
+    /* filter: blur(8px); */
+  }
+
+  .mobile-drawer>hr {
+    width: 100%;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+
+  .mobile-menuItem {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    font-size: 1em;
+    font-weight: 700;
+    gap: 0.3em;
+  }
+
+  .mobile-profile {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+  }
+
+  .mobile-profile>button {
+    font-weight: 500;
+    background-color: hsl(180, 66%, 49%);
+    border: none;
+    padding: 2px;
+    color: white;
+    border-radius: 8px;
+  }
+
+  /* hero  */
   .hero {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-bottom: 0;
+    margin-bottom: 4em;
   }
 
   .left {
@@ -611,7 +724,7 @@ searchbar
     justify-content: center;
     align-items: center;
     flex: 1;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     /* width: 100%; */
   }
 
@@ -644,8 +757,15 @@ searchbar
   }
 
   .right>img {
+    margin-top: 2em;
     position: static;
     width: 70%;
+  }
+
+  .searchbar {
+    position: absolute;
+    top: 38rem;
+    margin-bottom: 1em;
   }
 
   .searchbar>div {
@@ -654,7 +774,8 @@ searchbar
     position: static;
     background-color: hsl(257, 27%, 26%);
   }
-  .searchbar>div>input{
+
+  .searchbar>div>input {
     width: 90%;
   }
 
@@ -668,6 +789,7 @@ searchbar
     width: 27em;
   }
 
+  /* statistics */
   .result-cards {
     display: flex;
     flex-direction: column;
@@ -696,6 +818,13 @@ searchbar
     align-self: center;
   }
 
+  .title-stat>p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+  }
+
   /* footer  */
   .footer {
     display: flex;
@@ -703,6 +832,28 @@ searchbar
     justify-content: center;
     align-items: center;
     gap: 1.5em;
+  }
+
+  .footer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .menu-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* align-self: center; */
+    /* flex-direction: ; */
+  }
+
+  .menu-footer>ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
 }
