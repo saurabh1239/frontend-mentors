@@ -99,49 +99,51 @@ function App() {
                 <img src={images} alt="" />
               </div>
           }
-          <div className="planetDescription">
-            <h1 style={{ color: Data[planet].color }}>{Data[planet].name}</h1>
-            <p>
-              {content}
-            </p>
-            <span>Source: Wikipedia
+          {/* <div className='planet-right'> */}
+            <div className="planetDescription">
+              <h1 style={{ color: Data[planet].color }}>{Data[planet].name}</h1>
+              <p>
+                {content}
+              </p>
+              <span>Source: Wikipedia
 
-              <a href={source}><img src={JumpIcon} /></a>
-            </span>
-            <ul className='structureView'>
-              <li onClick={handleOverview}
-                // className={structureView === "overview" ? "LI Active" : "LI"}
-                style={structureView === "overview" ?
-                  styles.Active :
-                  styles.li}
-              >
-                <span>01</span>
-                <span>
-                  overview
-                </span>
-              </li>
-              <li onClick={handleStructure}
-                style={structureView === "structure" ?
-                  styles.Active :
-                  styles.li}>
-                <span>02</span>
-                <span>
-                  internal structure
-                </span>
-              </li>
-              <li onClick={handleGeology}
-                style={structureView === "geology" ?
-                  styles.Active :
-                  styles.li}>
-                <span>03</span>
-                <span>
-                  surface geology
-                </span>
-              </li>
-            </ul>
-          </div>
+                <a href={source}><img src={JumpIcon} /></a>
+              </span>
+              <ul className='structureView'>
+                <li onClick={handleOverview}
+                  // className={structureView === "overview" ? "LI Active" : "LI"}
+                  style={structureView === "overview" ?
+                    styles.Active :
+                    styles.li}
+                >
+                  <span>01</span>
+                  <span>
+                    overview
+                  </span>
+                </li>
+                <li onClick={handleStructure}
+                  style={structureView === "structure" ?
+                    styles.Active :
+                    styles.li}>
+                  <span>02</span>
+                  <span>
+                    internal structure
+                  </span>
+                </li>
+                <li onClick={handleGeology}
+                  style={structureView === "geology" ?
+                    styles.Active :
+                    styles.li}>
+                  <span>03</span>
+                  <span>
+                    surface geology
+                  </span>
+                </li>
+              </ul>
+            </div>
+          {/* </div> */}
         </div>
-        <PlanetFooter Data={Data} planet={planet} setplanet={setplanet} />
+        {/* <PlanetFooter Data={Data} planet={planet} setplanet={setplanet} /> */}
       </div>
     </div >
   )

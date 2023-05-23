@@ -98,9 +98,11 @@ p {
   font-weight: 600;
   cursor: pointer;
 }
-.planets>li{
+
+.planets>li {
   font-size: 0.8em;
 }
+
 /* planet css */
 .planet {
   background-image: url("../public/assets/background-stars.svg");
@@ -108,25 +110,39 @@ p {
   /* height: 100%; */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  /* align-items: flex-start; */
   gap: 4em;
-  padding: 4em 0em;
+  padding: 6.25em 0em;
+
+  position: relative;
 }
 
 .planetinfo {
+  flex: 1;
   display: flex;
-  /* width: 100%; */
-  /* height: 100%; */
-  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  /* align-items: center; */
   /* justify-content: space-around; */
-  gap: 20em;
+  /* gap: 20em; */
   /* flex-direction: column; */
+  height: 100%
 }
 
 .planetImage {
-  align-items: center;
+  display: flex;
+  position: relative;
+  /* align-items: center;
+  justify-content: center; */
+
   /* flex: 1; */
+}
+
+.planetImage>img {
+  position: absolute;
+  top: 1em;
+  right: 2em;
 }
 
 .planetImageGeology {
@@ -135,6 +151,7 @@ p {
   position: relative;
   align-items: center;
   justify-content: center;
+
 }
 
 .image-super {
@@ -145,13 +162,23 @@ p {
   /* align-self: flex-end; */
 }
 
+.planet-right {
+  position: relative;
+}
+
 .planetDescription {
-  /* flex: 1; */
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 2em;
+  /* margin-left: auto; */
+  position: absolute;
+  top: 2em;
+  right: 3em;
+
 }
-.planetDescription>h1{
+
+.planetDescription>h1 {
   font-size: 4em;
   text-transform: uppercase;
   /* line-height: 1em; */
@@ -165,7 +192,7 @@ p {
   white-space: pre-line;
 }
 
-.structureView   {
+.structureView {
   list-style: none;
   display: flex;
   flex-direction: column;
