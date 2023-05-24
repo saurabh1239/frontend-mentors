@@ -1,0 +1,111 @@
+.upper-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background-color: #202020;
+    padding: 1em;
+}
+
+.header {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2em;
+}
+
+.logo {
+    font-size: 2em;
+    /* text-transform: uppercase */
+}
+
+.logo>span {
+    color: red;
+    padding: 3px;
+}
+
+
+/* searchbar */
+.searchBar {
+    /* padding: 0.5em; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.searchBar-input {
+    background: black;
+    width: 30em;
+    padding: 0.5em;
+    border: 1px solid #444D56;
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.searchBar-button {
+    padding: 0.5em;
+    background-color: #202020;
+    color: #323232;
+    width: 63px;
+    border: 1px solid #444D56;
+    border-radius: 0 5px 5px 0;
+}
+
+
+/* genre */
+.genre {
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    /* gap: 2em; */
+}
+
+.genre-chips {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.genre-chips {}
+
+.chip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em 0.7em;
+    /* border: 1px solid black; */
+    color: white;
+    border-radius: 1.5em;
+}
+.chip.Active{
+    background-color: white;
+    color: black;
+}
+
+/* filter chips */
+
+.filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 3em;
+}
+
+.filterChip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em 0.7em;
+    /* border: 1px solid black; */
+    color: white;
+    border-radius: 1.5em;
+}
+
+.filterChip.Active {
+    background: white;
+    color: black;
+}
