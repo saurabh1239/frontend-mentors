@@ -36,7 +36,7 @@
 
 .searchBar-input {
     background: black;
-    width: 30em;
+    width: 35em;
     padding: 0.5em;
     border: 1px solid #444D56;
     border-right: none;
@@ -59,6 +59,7 @@
     color: white;
     justify-content: center;
     align-items: center;
+    position: relative;
     /* gap: 2em; */
 }
 
@@ -77,12 +78,20 @@
     align-items: center;
     padding: 0.5em 0.7em;
     /* border: 1px solid black; */
-    color: white;
+    color:rgba(226, 224, 224, 0.842);
     border-radius: 1.5em;
+    cursor: pointer;
 }
 .chip.Active{
     background-color: white;
     color: black;
+    
+}
+
+/* release date */
+.releaseDate{
+    position: absolute;
+    right: 16em;
 }
 
 /* filter chips */
@@ -99,10 +108,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.5em 0.7em;
+    padding: 0.7em 0.7em;
     /* border: 1px solid black; */
     color: white;
-    border-radius: 1.5em;
+    border-radius: 1em;
+    cursor: pointer;
 }
 
 .filterChip.Active {
