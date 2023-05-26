@@ -1,4 +1,13 @@
 .videopage {
-    background-color: black;
-
+    background-color: #181818;
+    display: flex;
+    flex-direction: column;
+    /* gap: 1em; */
+    /* padding:0em 2em; */
+}
+.videopage>hr{
+    width:87.5%;
+    /* height: 1px;    */
+    border: 1px solid rgba(255, 255, 255, 0.425);
+    /* z-index: 1; */
 }

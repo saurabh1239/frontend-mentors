@@ -1,3 +1,4 @@
+import { Link, useLocation } from "react-router-dom";
 import "./VideoCards.css"
 // "votes": {
 //     "upVotes": 0,
@@ -11,19 +12,27 @@ import "./VideoCards.css"
 // "genre": "Movies",
 // "contentRating": "12+",
 // "releaseDate": "18 Jan 2021"
-const VideoCards = ({ videos }) => {
+const VideoCards = ({ videos,setVideoLink }) => {
     // console.log("vider",typeof(videos));
+    const params = useLocation();
+
+    const handleVideo = (link) => {
+        setVideoLink(link)
+    }
+
     return (
         <div className="videocards">
             {videos.map((item, id) =>
-                <div className="card" key={id}>
-                    <img src={item.previewImage} alt="" />
-                    <span className="cardTitle">
-                        {item.title}
-                    </span>
-                    <span className="releaseDatep">
-                        {item.releaseDate}
-                    </span>
+                <div className="card" key={id} onClick={() => handleVideo(item.videoLink)}>
+                    <Link to={"/Video"}>
+                        <img src={item.previewImage} alt="" />
+                        <span className="cardTitle">
+                            {item.title}
+                        </span>
+                        <span className="releaseDatep">
+                            {item.releaseDate}
+                        </span>
+                    </Link>
                 </div>
             )}
         </div>

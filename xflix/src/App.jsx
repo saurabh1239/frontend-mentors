@@ -6,13 +6,14 @@ import Dashboard from './Pages/Dashboard'
 import axios from 'axios'
 import Data from "./Constants/Data"
 import VideoPage from './Pages/VideoPage'
+import { BrowserRouter, Link, Route, Routes, useLocation, useParams, useSearchParams } from "react-router-dom";
 
 var url =
   "https://bb0ab0a0-c99b-48b5-8394-2c99d5f4587b.mock.pstmn.io/v1/videos";
 function App() {
-  const [count, setCount] = useState(0);
   const [videos, setVideos] = useState([]);
-  const [searchBar, setSearchBar] = useState("")
+  const [searchBar, setSearchBar] = useState("");
+  const [videoLink, setVideoLink] = useState("");
 
   const performApiCall = async () => {
     try {
@@ -22,7 +23,7 @@ function App() {
       // const resp = await axios.get(url);
       // const data = resp.data.videos;
       setVideos(definedData)
-      console.log("data", definedData);
+      // console.log("data", definedData);
     } catch (error) {
       console.log(error);
     }
@@ -31,18 +32,24 @@ function App() {
   const handlesearch = (e) => {
     setSearchBar(e.target.value)
   }
+  const params = useLocation();
   useEffect(() => {
     (async () =>
       await performApiCall())();
     // setVideos(Data)
   }, [])
-  console.log("new data", videos);
-
+  // console.log("param", params);
   // performApiCall();
   return (
     <div className="container">
-      {/* <Dashboard videos={videos} searchBar={searchBar} setSearchBar={setSearchBar}  handlesearch={handlesearch}/> */}
-      <VideoPage />
+      <Routes>
+        <Route path='/' element={<Dashboard videos={videos} searchBar={searchBar}
+          setSearchBar={setSearchBar}
+          handlesearch={handlesearch}
+          setVideoLink={setVideoLink} />
+        } />
+        <Route path='/Video' element={<VideoPage videos={videos} videoLink={videoLink} setVideoLink={setVideoLink} />} />
+      </Routes>
     </div>
   )
 }

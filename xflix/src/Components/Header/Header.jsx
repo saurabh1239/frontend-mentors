@@ -1,5 +1,6 @@
 import { useState } from "react"
 import "./Header.css"
+import { Link } from "react-router-dom"
 
 const genre = [
     "All Genre",
@@ -16,7 +17,7 @@ const AgeFilters = [
     "16+",
     "18+",
 ]
-const Header = ({searchBar,setSearchBar,handlesearch}) => {
+const Header = ({ searchBar, setSearchBar, handlesearch }) => {
     const [Genre, setGenre] = useState(genre[0]);
     const [Age, setAge] = useState(AgeFilters[0]);
 
@@ -33,20 +34,22 @@ const Header = ({searchBar,setSearchBar,handlesearch}) => {
     return (
         <div className="upper-header">
             <div className="header">
-                <span className="logo">
-                    <span>X</span>
-                    Flix
-                </span>
-                {/* <span className="searchBar">
+                <Link to="/">
+                    <span className="logo" >
+                        <span>X</span>
+                        Flix
+                    </span>
+                </Link>
+                <span className="searchBar">
                     <input type="text" className='searchBar-input' placeholder="Search" value={searchBar} onChange={(e)=>handlesearch(e)}/>
                     <button className="searchBar-button">S</button>
                 </span>
                 <span className="profile">
                     <span>I</span>
                     Upload
-                </span> */}
+                </span>
             </div>
-            {/* <div className="genre">
+            <div className="genre">
                 <div className="genre-chips">
                     {genre.map((item, id) =>
                         <span className={Genre === item ? "chip Active" : "chip"} key={id}
@@ -65,7 +68,7 @@ const Header = ({searchBar,setSearchBar,handlesearch}) => {
                         {item}
                     </span>
                 )}
-            </div> */}
+            </div>
         </div >
     )
 }

@@ -1,0 +1,57 @@
+.videoPlayer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+    /* height: 32em; */
+
+}
+
+.videoWindow {
+    width: 88%;
+    height: 623px;
+}
+
+.videoMaster {
+    width: 100%;
+    height: 87%;
+    border-radius: 1em;
+}
+
+.videoDesc {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em;
+    justify-content: space-between;
+}
+
+.Desc-left {
+    color: white;
+}
+
+.Desc-left>ul {
+    padding-left: 1em;
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.Desc-right {
+    display: flex;
+    gap: 1em;
+    /* flex-direction: column; */
+}
+
+.Desc-right>button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 1em;
+    /* padding: 0.6em 0; */
+    background-color: #202020;
+    border:none
+}
