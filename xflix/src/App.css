@@ -5,6 +5,13 @@
   padding: 0;
   /* padding: 2rem; */
 }
+*a{
+  list-style: none;
+  color: white;
+}
+*a::before{
+  color: white;
+}
 
 .container {
   margin: 0;

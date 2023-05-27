@@ -14,7 +14,14 @@ function App() {
   const [videos, setVideos] = useState([]);
   const [searchBar, setSearchBar] = useState("");
   const [videoLink, setVideoLink] = useState("");
-
+  const [propData, setPropData] = useState({
+    title: "",
+    VideoLink: "",
+    contentRating: "",
+    releaseDate: "",
+    upvote: "",
+    downVote: "",
+  })
   const performApiCall = async () => {
     try {
       const resp = await fetch(url);
@@ -46,9 +53,14 @@ function App() {
         <Route path='/' element={<Dashboard videos={videos} searchBar={searchBar}
           setSearchBar={setSearchBar}
           handlesearch={handlesearch}
-          setVideoLink={setVideoLink} />
+          setVideoLink={setVideoLink}
+          propData={propData}
+          setPropData={setPropData} />
         } />
-        <Route path='/Video' element={<VideoPage videos={videos} videoLink={videoLink} setVideoLink={setVideoLink} />} />
+        <Route path='/Video' element={<VideoPage videos={videos}
+          videoLink={videoLink} setVideoLink={setVideoLink}
+          propData={propData}
+          setPropData={setPropData} />} />
       </Routes>
     </div>
   )

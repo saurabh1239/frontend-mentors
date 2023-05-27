@@ -17,14 +17,17 @@ const AgeFilters = [
     "16+",
     "18+",
 ]
-const Header = ({ searchBar, setSearchBar, handlesearch }) => {
+const Header = ({ searchBar, setSearchBar, handlesearch, modalOpen,setModalOpen }) => {
     const [Genre, setGenre] = useState(genre[0]);
     const [Age, setAge] = useState(AgeFilters[0]);
 
-    console.log("age", Age);
-    console.log("agefilter", AgeFilters[0]);
 
+    // console.log("age", Age);
+    // console.log("agefilter", AgeFilters[0]);
 
+    // const handleModel = () => {
+
+    // }
     const handleGenre = (id) => {
         setGenre(genre[id])
     }
@@ -41,10 +44,10 @@ const Header = ({ searchBar, setSearchBar, handlesearch }) => {
                     </span>
                 </Link>
                 <span className="searchBar">
-                    <input type="text" className='searchBar-input' placeholder="Search" value={searchBar} onChange={(e)=>handlesearch(e)}/>
+                    <input type="text" className='searchBar-input' placeholder="Search" value={searchBar} onChange={(e) => handlesearch(e)} />
                     <button className="searchBar-button">S</button>
                 </span>
-                <span className="profile">
+                <span className="profile" onClick={() => setModalOpen(!modalOpen)}>
                     <span>I</span>
                     Upload
                 </span>
@@ -53,12 +56,12 @@ const Header = ({ searchBar, setSearchBar, handlesearch }) => {
                 <div className="genre-chips">
                     {genre.map((item, id) =>
                         <span className={Genre === item ? "chip Active" : "chip"} key={id}
-                        onClick={()=>handleGenre(id)}>
+                            onClick={() => handleGenre(id)}>
                             {item}
                         </span>
                     )}
                 </div>
-                <span className="releaseDate">Release Date</span>   
+                <span className="releaseDate">Release Date</span>
             </div>
             <div className="filters">
                 {AgeFilters.map((item, id) =>
