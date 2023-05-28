@@ -53,5 +53,9 @@
     border-radius: 1em;
     /* padding: 0.6em 0; */
     background-color: #202020;
-    border:none
+    border:none;
+    color:white
+}
+.Desc-right>button>p{
+    color: white;
 }

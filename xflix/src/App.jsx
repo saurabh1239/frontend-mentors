@@ -44,7 +44,7 @@ function App() {
     (async () =>
       await performApiCall())();
     // setVideos(Data)
-  }, [])
+  }, [propData])
   // console.log("param", params);
   // performApiCall();
   return (

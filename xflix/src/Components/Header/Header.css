@@ -120,3 +120,8 @@
     background: white;
     color: black;
 }
+
+
+.profile{
+    cursor: pointer;
+}

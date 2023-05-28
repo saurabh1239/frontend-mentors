@@ -19,7 +19,8 @@ const Dashboard = ({ videos, searchBar,
             <Header searchBar={searchBar} setSearchBar={searchBar}
                 handlesearch={handlesearch} setModalOpen={setModalOpen}
                 modalOpen={modalOpen} />
-            <VideoCards videos={videos} setVideoLink={setVideoLink}
+            <VideoCards
+                videos={videos}
                 propData={propData}
                 setPropData={setPropData}
             />

@@ -12,22 +12,36 @@ import "./VideoCards.css"
 // "genre": "Movies",
 // "contentRating": "12+",
 // "releaseDate": "18 Jan 2021"
-const VideoCards = ({ videos, setVideoLink,
-    propData, setPropData }) => {
+const VideoCards = ({ videos, propData, setPropData }) => {
     // console.log("vider",typeof(videos));
     const params = useLocation();
 
     const handleVideo = (link) => {
-        const { videoLink, contentRating, releaseDate } = link;
-        const{upVote,downVote} =link.votes;
-        console.log(videoLink,contentRating,releaseDate);
+        propData.title = link.title;
+        propData.VideoLink = link.videoLink;
+        propData.contentRating = link.contentRating;
+        propData.releaseDate = link.releaseDate;
+        propData.upvote = link.votes.upVotes;
+        propData.downVote = link.votes.downVote;
+
+
+
+        // const {name,value} = link;
+        console.log("link", propData);
+        // setPropData((prev)=>{
+        //     return{...prev,[name]:value}
+        // })
+
+        // const { videoLink, contentRating, releaseDate } = link;
+        // const{upVote,downVote} =link.votes;
+        console.log(propData);
     }
 
     return (
         <div className="videocards">
             {videos.map((item, id) =>
-                <div className="card" key={id} onClick={() => handleVideo(item)}>
-                    <Link to={"/Video"}>
+                <Link to={"/Video"} key={id}>
+                    <div className="card"  onClick={() => handleVideo(item)}>
                         <img src={item.previewImage} alt="" />
                         <span className="cardTitle">
                             {item.title}
@@ -35,8 +49,8 @@ const VideoCards = ({ videos, setVideoLink,
                         <span className="releaseDatep">
                             {item.releaseDate}
                         </span>
-                    </Link>
-                </div>
+                    </div>
+                </Link>
             )}
         </div>
     )
