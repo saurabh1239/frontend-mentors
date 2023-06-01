@@ -7,7 +7,8 @@ import Modals from '../Components/Modals/Modals';
 const Dashboard = ({ videos, searchBar,
     setSearchBar, handlesearch,
     setVideoLink, propData,
-    setPropData }) => {
+    setPropData, genreFilter, setGenreFilter,
+    ageFilter, setAgeFilter }) => {
     const [modalOpen, setModalOpen] = useState(false);
     return (
         <div className="dashboard">
@@ -18,7 +19,9 @@ const Dashboard = ({ videos, searchBar,
             }
             <Header searchBar={searchBar} setSearchBar={searchBar}
                 handlesearch={handlesearch} setModalOpen={setModalOpen}
-                modalOpen={modalOpen} />
+                modalOpen={modalOpen} genreFilter={genreFilter}
+                setGenreFilter={setGenreFilter}
+                ageFilter={ageFilter} setAgeFilter={setAgeFilter} />
             <VideoCards
                 videos={videos}
                 propData={propData}

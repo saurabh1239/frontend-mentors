@@ -17,22 +17,23 @@ const AgeFilters = [
     "16+",
     "18+",
 ]
-const Header = ({ searchBar, setSearchBar, handlesearch, modalOpen, setModalOpen }) => {
-    const [Genre, setGenre] = useState(genre[0]);
+const Header = ({ searchBar, setSearchBar, handlesearch, modalOpen, setModalOpen,
+    genreFilter, setGenreFilter, ageFilter, setAgeFilter }) => {
+    // const [Genre, setGenre] = useState(genre[0]);
     const [Age, setAge] = useState(AgeFilters[0]);
 
     const location = useLocation()
-    // console.log("age", Age);
+    console.log("age", genreFilter);
     // console.log("agefilter", AgeFilters[0]);
 
     // const handleModel = () => {
 
     // }
     const handleGenre = (id) => {
-        setGenre(genre[id])
+        setGenreFilter(prev => [...prev, genre[id]])
     }
     const handleAge = (id) => {
-        setAge(AgeFilters[id])
+        setAgeFilter(AgeFilters[id])
     }
     return (
         <div className="upper-header">
@@ -63,7 +64,21 @@ const Header = ({ searchBar, setSearchBar, handlesearch, modalOpen, setModalOpen
                     <div className="genre">
                         <div className="genre-chips">
                             {genre.map((item, id) =>
-                                <span className={Genre === item ? "chip Active" : "chip"} key={id}
+                                <span
+                                    className={genreFilter.forEach(element => {
+                                        // console.log("check",element,item);
+                                        if (element === item) {
+                                            console.log("passsed");
+                                            return "chip Active";
+                                        }
+                                        else {
+                                            console.log("passsed 2");
+                                            return "chip";
+                                        }
+
+                                    })
+                                    }
+                                    key={id}
                                     onClick={() => handleGenre(id)}>
                                     {item}
                                 </span>
@@ -73,7 +88,7 @@ const Header = ({ searchBar, setSearchBar, handlesearch, modalOpen, setModalOpen
                     </div>
                     <div className="filters">
                         {AgeFilters.map((item, id) =>
-                            < span key={id} className={Age === item ? "filterChip Active" : "filterChip"}
+                            < span key={id} className={ageFilter === item ? "filterChip Active" : "filterChip"}
                                 onClick={() => handleAge(id)}
                             >
                                 {item}

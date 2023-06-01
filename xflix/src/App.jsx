@@ -11,6 +11,7 @@ import { BrowserRouter, Link, Route, Routes, useLocation, useParams, useSearchPa
 var url =
   "https://bb0ab0a0-c99b-48b5-8394-2c99d5f4587b.mock.pstmn.io/v1/videos";
 function App() {
+  // states
   const [videos, setVideos] = useState([]);
   const [searchBar, setSearchBar] = useState("");
   const [videoLink, setVideoLink] = useState("");
@@ -22,13 +23,23 @@ function App() {
     upvote: "",
     downVote: "",
   })
+  const [genreFilter, setGenreFilter] = useState(["All Genre"]);
+  const [ageFilter, setAgeFilter] = useState("Any age group");
+  // {
+  //   genre:"All Genre",
+  //   selected:false
+  // }
+  // ,
+  // "Education",
+  // "Sports",
+  // "Comedy",
+  // "Lifestyle",
+
   const performApiCall = async () => {
     try {
       const resp = await fetch(url);
       const data = await resp.json();
       const definedData = data.videos
-      // const resp = await axios.get(url);
-      // const data = resp.data.videos;
       setVideos(definedData)
       // console.log("data", definedData);
     } catch (error) {
@@ -39,7 +50,6 @@ function App() {
   const handlesearch = (e) => {
     setSearchBar(e.target.value)
   }
-  const params = useLocation();
   useEffect(() => {
     (async () =>
       await performApiCall())();
@@ -55,7 +65,12 @@ function App() {
           handlesearch={handlesearch}
           setVideoLink={setVideoLink}
           propData={propData}
-          setPropData={setPropData} />
+          setPropData={setPropData}
+          genreFilter={genreFilter}
+          setGenreFilter={setGenreFilter}
+          ageFilter={ageFilter}
+          setAgeFilter={setAgeFilter}
+        />
         } />
         <Route path='/Video' element={<VideoPage videos={videos}
           videoLink={videoLink} setVideoLink={setVideoLink}
