@@ -84,44 +84,14 @@ const Modals = ({ setModalOpen, modalOpen }) => {
                                     )
                                     :
                                     (item.input === "calender" ?
-                                        <input type="date" /> 
+                                        <input type="date" required/>
                                         :
-                                        < input type="text" />
+                                        < input type="text" required/>
                                     )
                             }
                             <span>{item.error}</span>
                         </div>
                     )}
-                    {/* <div className='input-dialog'>
-                        <label htmlFor="">Video Link</label>
-                        <input type="text" />
-                        <span>error</span>
-                    </div>
-                    <div className='input-dialog'>
-                        <label htmlFor="">Title</label>
-                        <input type="text" />
-                        <span>error</span>
-                    </div>
-                    <div className='input-dialog'>
-                        <label htmlFor="">Genre</label>
-                        <input type="text" />
-                        <span>error</span>
-                    </div>
-                    <div className='input-dialog'>
-                        <label htmlFor="">Suitable Age</label>
-                        <input type="text" />
-                        <span>error</span>
-                    </div>
-                    <div className='input-dialog'>
-                        <label htmlFor="">Upload And Publish Date</label>
-                        <input type="text" />
-                        <span>error</span>
-                    </div> */}
-                    {/* <input type="text" />
-                    <input type="text" />
-                    <input type="text" />
-                    <input type="text" />
-                    <input type="text" /> */}
                 </form>
                 <div className="dialog-bottom">
                     <button className='uploadButton'>Upload Video</button>

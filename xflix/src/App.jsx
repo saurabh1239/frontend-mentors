@@ -9,7 +9,7 @@ import VideoPage from './Pages/VideoPage'
 import { BrowserRouter, Link, Route, Routes, useLocation, useParams, useSearchParams } from "react-router-dom";
 
 var url =
-  "https://bb0ab0a0-c99b-48b5-8394-2c99d5f4587b.mock.pstmn.io/v1/videos";
+  "https://9844e596-66a7-44a4-b2e1-ae10f6ebbd7a.mock.pstmn.io/v1/videos";
 function App() {
   // states
   const [videos, setVideos] = useState([]);
@@ -36,14 +36,49 @@ function App() {
   // "Lifestyle",
 
   const performApiCall = async () => {
-    try {
-      const resp = await fetch(url);
-      const data = await resp.json();
-      const definedData = data.videos
-      setVideos(definedData)
-      // console.log("data", definedData);
-    } catch (error) {
-      console.log(error);
+    if (searchBar.length > 0) {
+      const searchparam = `${url}?title=${searchBar}`;
+      try {
+        const resp = await fetch(searchparam);
+        const data = await resp.json();
+        const definedData = data.videos
+        setVideos(definedData)
+        // console.log("data", definedData);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    else if (ageFilter.length > 0) {
+      if (ageFilter === "Any age group") {
+        const resp = await fetch(url);
+        const data = await resp.json();
+        const definedData = data.videos
+        setVideos(definedData)
+        // ? contentRating = 12 % 2B
+      }
+      else {
+        const ratingUrl = `${url}?contentRating=${ageFilter}%2B`
+        try {
+          const resp = await fetch(ratingUrl);
+          const data = await resp.json();
+          const definedData = data.videos
+          setVideos(definedData)
+          // console.log("data", definedData);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    }
+    else {
+      try {
+        const resp = await fetch(url);
+        const data = await resp.json();
+        const definedData = data.videos
+        setVideos(definedData)
+        // console.log("data", definedData);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 
@@ -54,7 +89,7 @@ function App() {
     (async () =>
       await performApiCall())();
     // setVideos(Data)
-  }, [propData])
+  }, [ageFilter])
   // console.log("param", params);
   // performApiCall();
   return (

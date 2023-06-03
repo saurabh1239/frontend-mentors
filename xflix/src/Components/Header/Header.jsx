@@ -12,10 +12,10 @@ const genre = [
 
 const AgeFilters = [
     "Any age group",
-    "7+",
-    "12+",
-    "16+",
-    "18+",
+    "7",
+    "12",
+    "16",
+    "18",
 ]
 const Header = ({ searchBar, setSearchBar, handlesearch, modalOpen, setModalOpen,
     genreFilter, setGenreFilter, ageFilter, setAgeFilter }) => {
@@ -68,11 +68,11 @@ const Header = ({ searchBar, setSearchBar, handlesearch, modalOpen, setModalOpen
                                     className={genreFilter.forEach(element => {
                                         // console.log("check",element,item);
                                         if (element === item) {
-                                            console.log("passsed");
+                                            // console.log("passsed");
                                             return "chip Active";
                                         }
-                                        else {
-                                            console.log("passsed 2");
+                                        else if (element !== item) {
+                                            // console.log("passsed 2");
                                             return "chip";
                                         }
 
@@ -91,7 +91,9 @@ const Header = ({ searchBar, setSearchBar, handlesearch, modalOpen, setModalOpen
                             < span key={id} className={ageFilter === item ? "filterChip Active" : "filterChip"}
                                 onClick={() => handleAge(id)}
                             >
-                                {item}
+                                {item === "Any age group" ?
+                                    item :
+                                    `${item}+`}
                             </span>
                         )}
                     </div>
