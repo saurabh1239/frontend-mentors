@@ -1,6 +1,9 @@
 import { useState } from "react"
 import "./Header.css"
 import { Link, useLocation } from "react-router-dom"
+import PublishIcon from '@mui/icons-material/Publish';
+import SearchIcon from '@mui/icons-material/Search';
+import ImportExportIcon from '@mui/icons-material/ImportExport';
 
 const genre = [
     "All Genre",
@@ -18,7 +21,7 @@ const AgeFilters = [
     "18",
 ]
 const Header = ({ searchBar, setSearchBar, handlesearch, modalOpen, setModalOpen,
-    genreFilter, setGenreFilter, ageFilter, setAgeFilter }) => {
+    genreFilter, setGenreFilter, ageFilter, setAgeFilter, modalData, setModalData }) => {
     // const [Genre, setGenre] = useState(genre[0]);
     const [Age, setAge] = useState(AgeFilters[0]);
 
@@ -49,10 +52,10 @@ const Header = ({ searchBar, setSearchBar, handlesearch, modalOpen, setModalOpen
                     <>
                         <span className="searchBar">
                             <input type="text" className='searchBar-input' placeholder="Search" value={searchBar} onChange={(e) => handlesearch(e)} />
-                            <button className="searchBar-button">S</button>
+                            <button className="searchBar-button"><SearchIcon fontSize="small" sx={{ color: "white" }} /></button>
                         </span>
                         <span className="profile" onClick={() => setModalOpen(!modalOpen)}>
-                            <span>I</span>
+                            <PublishIcon />
                             Upload
                         </span>
                     </>
@@ -67,7 +70,7 @@ const Header = ({ searchBar, setSearchBar, handlesearch, modalOpen, setModalOpen
                                 <span
                                     className={genreFilter.forEach(element => {
                                         // console.log("check",element,item);
-                                        if (element === item) {
+                                        if (item === element) {
                                             // console.log("passsed");
                                             return "chip Active";
                                         }
@@ -84,7 +87,13 @@ const Header = ({ searchBar, setSearchBar, handlesearch, modalOpen, setModalOpen
                                 </span>
                             )}
                         </div>
-                        <span className="releaseDate">Release Date</span>
+                        <span className="releaseDate">
+                            <ImportExportIcon/>
+                            <select name="" id="">
+                                <option value="Release Date">Release Date</option>
+                                <option value="View Count">View Count</option>
+                            </select>
+                        </span>
                     </div>
                     <div className="filters">
                         {AgeFilters.map((item, id) =>

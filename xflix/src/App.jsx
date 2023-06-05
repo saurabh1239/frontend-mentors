@@ -25,6 +25,22 @@ function App() {
   })
   const [genreFilter, setGenreFilter] = useState(["All Genre"]);
   const [ageFilter, setAgeFilter] = useState("Any age group");
+ 
+  // modal data
+  const [modalData, setModalData] = useState({
+    "Video Link": "",
+    "Thumbnail Image Link": "",
+    "Title": "",
+    "Genre": "Education",
+    "Suitable age or group for the clip": "7",
+    "Upload and Publish date": ""
+})
+
+const handleModalData = (e) => {
+    const { name, value } = e.target;
+    setModalData({ ...modalData, [name]: value });
+
+}
   // {
   //   genre:"All Genre",
   //   selected:false
@@ -105,6 +121,7 @@ function App() {
           setGenreFilter={setGenreFilter}
           ageFilter={ageFilter}
           setAgeFilter={setAgeFilter}
+          modalData={modalData} setModalData={setModalData}
         />
         } />
         <Route path='/Video' element={<VideoPage videos={videos}
