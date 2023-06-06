@@ -1,7 +1,9 @@
 import "./videoPlayer.css"
 import like from "../../../public/like.svg"
 import unlike from "../../../public/435k.svg"
-import { useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom";
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 
 const VideoPLayer = ({propData,
   setPropData }) => {
@@ -21,13 +23,13 @@ const VideoPLayer = ({propData,
           </span>
           <span className="Desc-right">
             <button>
-              <img src={like} alt="" />
+              <ThumbUpIcon/>
               <p>
                 {propData.upvote}
               </p>
             </button>
             <button>
-              <img src={unlike} alt="" />
+              <ThumbDownIcon />
               <p>
               {propData.downVote}
               </p>
@@ -39,5 +41,5 @@ const VideoPLayer = ({propData,
     </div>
   )
 }
-
+e
 export default VideoPLayer

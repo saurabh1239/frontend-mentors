@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./Modal.css"
 import { Category } from '@mui/icons-material'
 import { Select } from '@material-ui/core'
+import axios from 'axios';
 var url =
     "https://9844e596-66a7-44a4-b2e1-ae10f6ebbd7a.mock.pstmn.io/v1/videos";
 
@@ -64,6 +65,8 @@ const Modals = ({ setModalOpen, modalOpen }) => {
         "Upload and Publish date": ""
     })
 
+    const [error,setError] = useState(false)
+
     const handleModalData = (e) => {
         const { name, value } = e.target;
         setModalData({ ...modalData, [name]: value });
@@ -71,22 +74,29 @@ const Modals = ({ setModalOpen, modalOpen }) => {
     }
 
     // form submission
-    const handleModalForm = async(e) => {
-        e.prevent.default();
+    const handleModalForm = async (e) => {
         try {
-            let res = await fetch(url, {
-                method: "POST",
-                body: JSON.stringify({
-                    "Video Link": modalData['Video Link'],
-                    "Thumbnail Image Link": modalData["Thumbnail Image Link"],
-                    "Title": modalData['Suitable age or group for the clip'],
-                    "Genre": modalData["Genre"],
-                    "Suitable age or group for the clip": modalData["Suitable age or group for the clip"],
-                    "Upload and Publish date": modalData["Upload and Publish date"]
-                }),
+            let resJson = await axios.postForm(url, {
+                "Video Link": modalData['Video Link'],
+                "Thumbnail Image Link": modalData["Thumbnail Image Link"],
+                "Title": modalData['Suitable age or group for the clip'],
+                "Genre": modalData["Genre"],
+                "Suitable age or group for the clip": modalData["Suitable age or group for the clip"],
+                "Upload and Publish date": modalData["Upload and Publish date"]
             });
-            let resJson = await res.json();
-            if (res.status === 200) {
+            e.prevent.default();
+            // let res = await fetch(url, {
+            //     method: "POST",
+            //     body: JSON.stringify({
+            //         "Video Link": modalData['Video Link'],
+            //         "Thumbnail Image Link": modalData["Thumbnail Image Link"],
+            //         "Title": modalData['Suitable age or group for the clip'],
+            //         "Genre": modalData["Genre"],
+            //         "Suitable age or group for the clip": modalData["Suitable age or group for the clip"],
+            //         "Upload and Publish date": modalData["Upload and Publish date"]
+            //     }),
+            // });
+            if (resJson.status === 200) {
                 // setName("");
                 // setEmail("");
                 // setMessage("User created successfully");
