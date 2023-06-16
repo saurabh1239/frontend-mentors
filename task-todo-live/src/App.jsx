@@ -2,16 +2,21 @@ import { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from "uuid";
 import bg_dark from "../public/images/bg-desktop-dark.jpg"
 import "./app.css"
+import ListAll from './Components/ListAll';
 function App() {
   const [Task, setTask] = useState("");
   const [todoList, setTodoList] = useState([]);
   const [checked, setChecked] = useState([])
+  const [AllTask, setAllTask] = useState([]);
+  const [presentList, setPresentList] = useState("All");
   // const userCollectionRef = collection(db, "users")
 
 
   const addTOdod = (todo) => {
     if (Task) {
-      setTodoList([...todoList, { id: uuidv4(), Task: todo, checked: false }])
+      const id = uuidv4()
+      setTodoList([...todoList, { id: id, Task: todo, checked: false }])
+      setAllTask([...AllTask, { id: id, Task: todo, checked: false }])
       setTask("")
     }
 
@@ -28,15 +33,24 @@ function App() {
       )
     );
     setChecked(todoList.map((todo) =>
-      todo.checked == true ? { id: todo.id, checked: todo.checked } : checked.filter((todo) => todo.checked === false)
+      todo.checked == true ? { id: todo.id, checked: todo.checked, Task: todo.Task } : checked.filter((todo) => todo.checked === false)
     ))
   }
 
   const clearChecked = () => {
     setTodoList(todoList.filter((item) => item.checked === false)
     )
-    console.log(checked);
+
   }
+  const handleRender = () => {
+    if (presentList === "All") {
+      return (
+        <ListAll todoList={todoList} />
+      )
+    }
+    // else if(presentList === "Active")
+  }
+
   return (
     <div className='app'>
       <div className="uppernav">
@@ -49,25 +63,18 @@ function App() {
 
         <form onSubmit={handleTodo} className='todo-input-wrapper'>
           <input type="text" placeholder='name' value={Task} onChange={(e) => setTask(e.target.value)} className='todo_input' />
-          <button >s</button>
         </form>
-
-        <ul className="todo-list">
-          {
-            todoList.map((item) =>
-              <li key={item.id} className='task'>
-                <input type="checkbox" checked={item.checked} onChange={() => handleCheck(item.id)} />
-                <p>{item.Task}</p>
-              </li>
-            )
-          }
-        </ul>
+        {(presentList === "All") ? <ListAll todoList={todoList} handleCheck={handleCheck} />
+          : <ListAll todoList={checked} handleCheck={handleCheck} />}
         <div className="dialog-footer">
           <div>{todoList.length ? todoList.length : 0} items left</div>
           <ul className='footer-item-ul'>
-            <li>All</li>
-            <li>Active</li>
-            <li>Completed</li>
+            <li onClick={() => setPresentList("All")}
+              className={presentList === "All" ? "footer-item-li Active" : "footer-item-li"}>All</li>
+            <li onClick={() => setPresentList("Active")}
+              className={presentList === "Active" ? "footer-item-li Active" : "footer-item-li"}>Active</li>
+            <li onClick={() => setPresentList("Completed")}
+              className={presentList === "Completed" ? "footer-item-li Active" : "footer-item-li"}>Completed</li>
           </ul>
           <button onClick={() => clearChecked()}>clear completed</button>
         </div>
