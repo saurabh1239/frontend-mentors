@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import bg_dark from "../public/images/bg-desktop-dark.jpg"
 import "./app.css"
 import ListAll from './Components/ListAll';
+import Header from './Components/Header';
 function App() {
   const [Task, setTask] = useState("");
   const [todoList, setTodoList] = useState([]);
@@ -56,16 +57,12 @@ function App() {
       <div className="uppernav">
       </div>
       <div className="dialog-box">
-        <div className="navbar">
-          <h1>TODO</h1>
-          <button>dark</button>
-        </div>
-
+        <Header />
         <form onSubmit={handleTodo} className='todo-input-wrapper'>
           <input type="text" placeholder='name' value={Task} onChange={(e) => setTask(e.target.value)} className='todo_input' />
         </form>
-        {(presentList === "All") ? <ListAll todoList={todoList} handleCheck={handleCheck} />
-          : <ListAll todoList={checked} handleCheck={handleCheck} />}
+        <ListAll todoList={todoList} handleCheck={handleCheck} presentList={presentList}
+          setPresentList={setPresentList} checked={checked} />
         <div className="dialog-footer">
           <div>{todoList.length ? todoList.length : 0} items left</div>
           <ul className='footer-item-ul'>

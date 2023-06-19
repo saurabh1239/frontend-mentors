@@ -82,7 +82,7 @@ body {
     /* text-decoration-line: line-through; */
 }
 
-.checkMark {
+.checkbox {
     width: 20px;
     height: 20px;
     border-radius: 99%;
@@ -124,7 +124,7 @@ body {
 }
 
 /* checkbox */
-.round {
+/* .round {
     position: relative;
 }
 
@@ -138,7 +138,7 @@ body {
     position: absolute;
     top: 0;
     width: 20px;
-}
+} */
 /* 
 .round label:after {
     border: 2px solid #fff;
