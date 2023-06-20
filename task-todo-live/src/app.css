@@ -122,6 +122,9 @@ body {
     /* font-size: 1.2em; */
     color: rgba(149, 222, 228, 0.835);
 }
+.attribution{
+    color: white;
+}
 
 /* checkbox */
 /* .round {

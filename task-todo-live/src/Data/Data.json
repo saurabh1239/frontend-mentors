@@ -1,0 +1,32 @@
+[
+    {
+      "id": 1,
+      "Task": "Complete online JavaScript course",
+      "Checked": true
+    },
+    {
+      "id": 2,
+      "Task": "Jog around the park 3x",
+      "Checked": false
+    },
+    {
+      "id": 3,
+      "Task": "10 minutes meditation",
+      "Checked": false
+    },
+    {
+      "id": 4,
+      "Task": "Read for 1 hour",
+      "Checked": false
+    },
+    {
+      "id": 5,
+      "Task": "Pick up groceries",
+      "Checked": false
+    },
+    {
+      "id": 6,
+      "Task": "Complete Todo App Frontend Mentor",
+      "Checked": false
+    }
+  ]
