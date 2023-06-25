@@ -24,7 +24,8 @@ function App() {
 
   const addTOdod = (todo) => {
     if (todo) {
-      const id = uuidv4()
+      // const id = uuidv4()
+      const id = Math.floor(Math.random() * 100);
       setTodoList([...todoList, { id: id, Task: todo, checked: false }])
       setAllTask([...AllTask, { id: id, Task: todo, checked: false }])
 
@@ -66,7 +67,7 @@ function App() {
         <Header theme={theme} setTheme={setTheme} />
         <Form addTOdod={addTOdod} />
         <ListAll todoList={todoList} handleCheck={handleCheck} presentList={presentList}
-          setPresentList={setPresentList} checked={checked} />
+          setPresentList={setPresentList} checked={checked} setTodoList={setTodoList} />
         <DialogFooter todoList={todoList} setPresentList={setPresentList}
           presentList={presentList} clearChecked={clearChecked} />
       </div>
