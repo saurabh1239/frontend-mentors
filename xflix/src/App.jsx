@@ -23,9 +23,9 @@ function App() {
     upvote: "",
     downVote: "",
   })
-  const [genreFilter, setGenreFilter] = useState(["All Genre"]);
+  const [genreFilter, setGenreFilter] = useState("All Genre");
   const [ageFilter, setAgeFilter] = useState("Any age group");
- 
+
   // modal data
   const [modalData, setModalData] = useState({
     "Video Link": "",
@@ -34,13 +34,13 @@ function App() {
     "Genre": "Education",
     "Suitable age or group for the clip": "7",
     "Upload and Publish date": ""
-})
+  })
 
-const handleModalData = (e) => {
+  const handleModalData = (e) => {
     const { name, value } = e.target;
     setModalData({ ...modalData, [name]: value });
 
-}
+  }
   // {
   //   genre:"All Genre",
   //   selected:false
@@ -51,50 +51,89 @@ const handleModalData = (e) => {
   // "Comedy",
   // "Lifestyle",
 
-  const performApiCall = async () => {
+  const performApiCall = () => {
+    var UpdatedData = Data;
+    // setVideos(Data)
     if (searchBar.length > 0) {
-      const searchparam = `${url}?title=${searchBar}`;
-      try {
-        const resp = await fetch(searchparam);
-        const data = await resp.json();
-        const definedData = data.videos
-        setVideos(definedData)
-        // console.log("data", definedData);
-      } catch (error) {
-        console.log(error);
+      const searchBarFilter = UpdatedData.filter((item) => {
+        return item.title.toLowerCase().includes(searchBar)
+      });
+      setVideos(searchBarFilter)
+      console.log(searchBarFilter);
+      // const searchparam = `${url}?title=${searchBar}`;
+      // try {
+      //   const resp = await fetch(searchparam);
+      //   const data = await resp.json();
+      //   const definedData = data.videos
+      //   setVideos(definedData)
+      //   // console.log("data", definedData);
+      // } catch (error) {
+      //   console.log(error);
+      // }
+    }
+    else if (genreFilter.length > 0) {
+      if (genreFilter === "All Genre") {
+        console.log("here1");
+        const GenreData = UpdatedData;
+        setVideos(GenreData)
+      }
+      else {
+        console.log("here2");
+        const GenreData = UpdatedData.filter((item) => {
+          return item.genre.toLowerCase().includes(genreFilter.toLowerCase())
+        }
+        )
+        UpdatedData = GenreData;
+        setVideos(UpdatedData)
       }
     }
     else if (ageFilter.length > 0) {
       if (ageFilter === "Any age group") {
-        const resp = await fetch(url);
-        const data = await resp.json();
-        const definedData = data.videos
-        setVideos(definedData)
-        // ? contentRating = 12 % 2B
+        const AgeData = UpdatedData;
+        setVideos(AgeData)
       }
       else {
-        const ratingUrl = `${url}?contentRating=${ageFilter}%2B`
-        try {
-          const resp = await fetch(ratingUrl);
-          const data = await resp.json();
-          const definedData = data.videos
-          setVideos(definedData)
-          // console.log("data", definedData);
-        } catch (error) {
-          console.log(error);
+        const AgeData = UpdatedData.filter((item) => {
+          return item.contentRating.includes(ageFilter)
         }
+        )
+        UpdatedData = AgeData;
+        setVideos(AgeData)
       }
+      // if (ageFilter === "Any age group") {
+      //   const resp = await fetch(url);
+      //   const data = await resp.json();
+      //   const definedData = data.videos
+      //   setVideos(definedData)
+      //   // ? contentRating = 12 % 2B
+      // }
+      // else {
+      //   const ratingUrl = `${url}?contentRating=${ageFilter}%2B`
+      //   try {
+      //     const resp = await fetch(ratingUrl);
+      //     const data = await resp.json();
+      //     const definedData = data.videos
+      //     setVideos(definedData)
+      //     // console.log("data", definedData);
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      // }
     }
+
     else {
-      try {
-        const resp = await fetch(url);
-        const data = await resp.json();
-        const definedData = data.videos
-        setVideos(definedData)
-        // console.log("data", definedData);
-      } catch (error) {
-        console.log(error);
-      }
+      console.log("sadasd", videos);
+      setVideos(UpdatedData)
+
+      // try {
+      //   const resp = await fetch(url);
+      //   const data = await resp.json();
+      //   const definedData = data.videos
+      //   setVideos(definedData)
+      //   // console.log("data", definedData);
+      // } catch (error) {
+      //   console.log(error);
+      // }
     }
   }
 
@@ -102,10 +141,11 @@ const handleModalData = (e) => {
     setSearchBar(e.target.value)
   }
   useEffect(() => {
-    (async () =>
-      await performApiCall())();
+    performApiCall();
+    // (async () =>
+    //   await performApiCall())();
     // setVideos(Data)
-  }, [ageFilter])
+  }, [ageFilter, searchBar, genreFilter])
   // console.log("param", params);
   // performApiCall();
   return (

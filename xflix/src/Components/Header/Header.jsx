@@ -8,6 +8,7 @@ import ImportExportIcon from '@mui/icons-material/ImportExport';
 
 const genre = [
     "All Genre",
+    "Movies",
     "Education",
     "Sports",
     "Comedy",
@@ -27,14 +28,15 @@ const Header = ({ searchBar, setSearchBar, handlesearch, modalOpen, setModalOpen
     const [Age, setAge] = useState(AgeFilters[0]);
 
     const location = useLocation()
-    console.log("age", genreFilter);
+    // console.log("age", genreFilter);
     // console.log("agefilter", AgeFilters[0]);
 
     // const handleModel = () => {
 
     // }
     const handleGenre = (id) => {
-        setGenreFilter(prev => [...prev, genre[id]])
+        setGenreFilter(genre[id])
+        // setGenreFilter((prev) => [...prev, genre[id]])
     }
     const handleAge = (id) => {
         setAgeFilter(AgeFilters[id])
@@ -69,19 +71,19 @@ const Header = ({ searchBar, setSearchBar, handlesearch, modalOpen, setModalOpen
                         <div className="genre-chips">
                             {genre.map((item, id) =>
                                 <span
-                                    className={genreFilter.forEach(element => {
-                                        // console.log("check",element,item);
-                                        if (item === element) {
-                                            // console.log("passsed");
-                                            return "chip Active";
-                                        }
-                                        else if (element !== item) {
-                                            // console.log("passsed 2");
-                                            return "chip";
-                                        }
+                                    className={genreFilter === item ? "filterChip Active" : "filterChip"}
+                                    // className={genreFilter.forEach(element => {
 
-                                    })
-                                    }
+                                    //     if (item === element) {
+                                    //         return "filterChip Active";
+                                    //     }
+                                    //     else {
+
+                                    //         return "filterChip";
+                                    //     }
+
+                                    // })
+                                    // }
                                     key={id}
                                     onClick={() => handleGenre(id)}>
                                     {item}
@@ -89,7 +91,7 @@ const Header = ({ searchBar, setSearchBar, handlesearch, modalOpen, setModalOpen
                             )}
                         </div>
                         <span className="releaseDate">
-                            <ImportExportIcon/>
+                            <ImportExportIcon />
                             <select name="" id="">
                                 <option value="Release Date">Release Date</option>
                                 <option value="View Count">View Count</option>

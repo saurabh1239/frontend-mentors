@@ -16,7 +16,7 @@
 
 .logo {
     font-size: 2em;
-    
+
     /* text-transform: uppercase */
 }
 
@@ -71,7 +71,14 @@
     gap: 1em;
 }
 
-.genre-chips {}
+.genre-chips {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 1em;
+    
+}
 
 .chip {
     display: flex;
@@ -79,34 +86,37 @@
     align-items: center;
     padding: 0.5em 0.7em;
     /* border: 1px solid black; */
-    color:rgba(226, 224, 224, 0.842);
+    color: rgba(226, 224, 224, 0.842);
     border-radius: 1.5em;
     cursor: pointer;
 }
-.chip.Active{
+
+.chip.Active {
     background-color: white;
     color: black;
-    
+
 }
 
 /* release date */
-.releaseDate{
+.releaseDate {
     display: flex;
     align-items: center;
     position: absolute;
     right: 16em;
-    padding: 0.5em ;
+    padding: 0.5em;
     border-radius: 1em;
     color: white;
     background-color: #202020;
     border: 1px solid #181818;
 }
-.releaseDate>select{
-    padding: 0.5em ;
+
+.releaseDate>select {
+    padding: 0.5em;
     background-color: #202020;
     color: white;
     border: none;
 }
+
 /* filter chips */
 
 .filters {
@@ -134,12 +144,12 @@
 }
 
 
-.profile{
+.profile {
     display: flex;
     align-items: center;
     cursor: pointer;
     gap: 2px;
-    padding:  0.3em 0.5em;
-    background-color:cornflowerblue;
-    border-radius:5px
+    padding: 0.3em 0.5em;
+    background-color: cornflowerblue;
+    border-radius: 5px
 }

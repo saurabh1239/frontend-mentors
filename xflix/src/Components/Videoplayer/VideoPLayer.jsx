@@ -41,5 +41,4 @@ const VideoPLayer = ({propData,
     </div>
   )
 }
-e
 export default VideoPLayer
