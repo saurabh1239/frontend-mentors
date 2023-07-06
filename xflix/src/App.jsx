@@ -8,11 +8,12 @@ import Data from "./Constants/Data"
 import VideoPage from './Pages/VideoPage'
 import { BrowserRouter, Link, Route, Routes, useLocation, useParams, useSearchParams } from "react-router-dom";
 
-var url =
-  "https://9844e596-66a7-44a4-b2e1-ae10f6ebbd7a.mock.pstmn.io/v1/videos";
+// var url =
+//   "https://9844e596-66a7-44a4-b2e1-ae10f6ebbd7a.mock.pstmn.io/v1/videos";
 function App() {
   // states
   const [videos, setVideos] = useState([]);
+  const [filterData, setFilterData] = useState([]);
   const [searchBar, setSearchBar] = useState("");
   const [videoLink, setVideoLink] = useState("");
   const [propData, setPropData] = useState({
@@ -136,16 +137,37 @@ function App() {
       // }
     }
   }
-
+  const applyFilters = (searchBar, genreFilter, ageFilter) => {
+    const results = videos.filter(
+      (item) =>
+        (item.title.toLowerCase().includes(searchBar))
+        // && (!genreFilter.length || item.genre.includes(genreFilter))
+        // && (!ageFilter.length || item.contentRating.includes(ageFilter))
+    );
+    setVideos(results);
+  };
   const handlesearch = (e) => {
     setSearchBar(e.target.value)
+    applyFilters(searchBar, genreFilter, ageFilter)
   }
+
+  const handleAge = (ageFilter) => {
+    setAgeFilter(ageFilter)
+    applyFilters(searchBar, genreFilter, ageFilter)
+  }
+  const handleGenre = (genreFilter) => {
+    setGenreFilter(genreFilter)
+    applyFilters(searchBar, genreFilter, ageFilter)
+  }
+
   useEffect(() => {
-    performApiCall();
+    setVideos(Data);
+    setFilterData(Data)
+    // performApiCall();
     // (async () =>
     //   await performApiCall())();
     // setVideos(Data)
-  }, [ageFilter, searchBar, genreFilter])
+  }, [])
   // console.log("param", params);
   // performApiCall();
   return (
